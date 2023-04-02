@@ -1,15 +1,20 @@
 package org.zmz.sb3.security.examples.controller;
 
+import com.fasterxml.jackson.annotation.JsonView;
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
 import org.zmz.sb3.security.examples.common.CommonResponse;
+import org.zmz.sb3.security.examples.filter.anno.InvokeTimeCalculate;
 import org.zmz.sb3.security.examples.vo.request.UserPageRequest;
+import org.zmz.sb3.security.examples.vo.response.UserResponse;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.IntStream;
 
 @RestController
 @RequestMapping("/user")
@@ -46,6 +51,34 @@ public class UserExampleController {
         String obj = ReflectionToStringBuilder.toString(userPageRequest, ToStringStyle.MULTI_LINE_STYLE);
         LOG.info("{}", obj);
         return List.of("AA", "BB", "CC");
+    }
+
+    @InvokeTimeCalculate
+    @JsonView(UserResponse.UserResponseDetailsView.class)
+    @GetMapping("/{id:\\d+}")
+    public UserResponse getUserResponse(@PathVariable("id") String id) {
+        LOG.info("{}", id);
+        UserResponse userResponse = new UserResponse();
+        userResponse.setUid(id);
+        userResponse.setName(id + "|Name");
+        userResponse.setPassword("123456");
+        return userResponse;
+    }
+
+    @JsonView(UserResponse.UserResponseSimpleView.class)
+    @GetMapping("/list")
+    public List<UserResponse> getUserResponses() {
+        List<UserResponse> userResponses = new ArrayList<>();
+        IntStream.rangeClosed(1, 6)
+                .forEach(i -> {
+                    UserResponse userResponse = new UserResponse();
+                    userResponse.setUid(String.valueOf(i));
+                    userResponse.setName(i + "|Name");
+                    userResponse.setPassword(i + "@123456");
+
+                    userResponses.add(userResponse);
+                });
+        return userResponses;
     }
 
 }

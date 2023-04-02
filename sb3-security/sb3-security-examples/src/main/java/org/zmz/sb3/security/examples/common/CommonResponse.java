@@ -23,11 +23,11 @@ public class CommonResponse<T> {
         return new CommonResponse<>(data);
     }
 
-    public static CommonResponse<?> fail(Integer code, String errorMsg) {
+    public static <E> CommonResponse<E> fail(Integer code, String errorMsg) {
         return new CommonResponse<>(code, errorMsg);
     }
 
-    public static CommonResponse<?> fail(String errorMsg) {
+    public static <E> CommonResponse<E> fail(String errorMsg) {
         return fail(999999, errorMsg);
     }
 

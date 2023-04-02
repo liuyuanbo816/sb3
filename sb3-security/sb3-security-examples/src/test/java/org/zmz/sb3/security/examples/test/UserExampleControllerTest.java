@@ -11,7 +11,11 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+import org.springframework.test.web.servlet.setup.StandaloneMockMvcBuilder;
 import org.springframework.web.context.WebApplicationContext;
+import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping;
+import org.zmz.sb3.security.examples.controller.UserExampleController;
+import org.zmz.sb3.security.examples.filter.InvokeTimeFilter;
 import org.zmz.sb3.security.examples.vo.request.UserPageRequest;
 
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
@@ -26,6 +30,9 @@ public class UserExampleControllerTest {
     WebApplicationContext wac;
 
     MockMvc mockMvc;
+
+    @Autowired
+    RequestMappingHandlerMapping requestMappingHandlerMapping;
 
     @BeforeEach
     void BeforeEach() {
@@ -71,6 +78,34 @@ public class UserExampleControllerTest {
                 )
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.length()").value(3))
+                .andReturn().getResponse().getContentAsString();
+        LOG.info("{}", response);
+    }
+
+    @Test
+    void testUserResponse() throws Exception {
+        StandaloneMockMvcBuilder standaloneMockMvcBuilder = MockMvcBuilders.standaloneSetup(new UserExampleController());
+        InvokeTimeFilter invokeTimeFilter = new InvokeTimeFilter();
+        invokeTimeFilter.setRequestMappingHandlerMapping(requestMappingHandlerMapping);
+        this.mockMvc = standaloneMockMvcBuilder.addFilters(invokeTimeFilter).build();
+        String response = this.mockMvc.perform(
+                        MockMvcRequestBuilders.get("/user/1001")
+                                .contentType(MediaType.APPLICATION_JSON)
+                )
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.uid").value("1001"))
+                .andReturn().getResponse().getContentAsString();
+        LOG.info("{}", response);
+    }
+
+    @Test
+    void testUserResponses() throws Exception {
+        String response = this.mockMvc.perform(
+                        MockMvcRequestBuilders.get("/user/list")
+                                .contentType(MediaType.APPLICATION_JSON)
+                )
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.length()").value(6))
                 .andReturn().getResponse().getContentAsString();
         LOG.info("{}", response);
     }

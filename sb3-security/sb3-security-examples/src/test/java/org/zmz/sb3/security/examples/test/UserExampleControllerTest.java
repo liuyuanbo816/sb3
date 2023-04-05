@@ -7,7 +7,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
+import org.springframework.mock.web.MockMultipartFile;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
@@ -17,6 +19,8 @@ import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandl
 import org.zmz.sb3.security.examples.controller.UserExampleController;
 import org.zmz.sb3.security.examples.filter.InvokeTimeFilter;
 import org.zmz.sb3.security.examples.vo.request.UserPageRequest;
+
+import java.nio.charset.StandardCharsets;
 
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -119,6 +123,22 @@ public class UserExampleControllerTest {
                 .andReturn().getResponse().getContentAsString();
         LOG.info("{}", response);
     }
+
+    @Test
+    void testFileUpload() throws Exception {
+        String response
+                = this.mockMvc.perform(MockMvcRequestBuilders.multipart(HttpMethod.POST, "/file/upload")
+                        .file(
+                                new MockMultipartFile("file",
+                                        "test.txt",
+                                        MediaType.MULTIPART_FORM_DATA_VALUE,
+                                        "HelloUpload".getBytes(StandardCharsets.UTF_8))
+                        )
+                ).andExpect(status().isOk())
+                .andReturn().getResponse().getContentAsString();
+        LOG.info("{}", response);
+    }
+
 
     public static String asJsonString(final Object obj) {
         try {

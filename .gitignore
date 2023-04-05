@@ -36,3 +36,4 @@ build/
 
 ### Mac OS ###
 .DS_Store
+/sb3-security/sb3-security-examples/src/main/resources/tmp/*

@@ -5,8 +5,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping;
 import org.zmz.sb3.security.examples.filter.InvokeTimeFilter;
 
@@ -17,16 +15,6 @@ public class ExampleWebSecurityConfig {
 
     @Autowired
     RequestMappingHandlerMapping requestMappingHandlerMapping;
-
-    @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
-        httpSecurity.formLogin()
-                .and()
-                .authorizeHttpRequests().anyRequest().permitAll()
-                .and()
-                .csrf().disable();
-        return httpSecurity.build();
-    }
 
     @Bean
     public FilterRegistrationBean<Filter> invokeTimeFilter() {

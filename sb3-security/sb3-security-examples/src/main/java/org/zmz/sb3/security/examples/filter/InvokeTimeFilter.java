@@ -25,7 +25,7 @@ public class InvokeTimeFilter extends OncePerRequestFilter {
 
         try {
             HandlerExecutionChain handler = requestMappingHandlerMapping.getHandler(request);
-            if (handler.getHandler() instanceof HandlerMethod handlerMethod) {
+            if (handler != null && handler.getHandler() instanceof HandlerMethod handlerMethod) {
                 InvokeTimeCalculate invokeTimeCalculate = handlerMethod.getMethodAnnotation(InvokeTimeCalculate.class);
                 if (invokeTimeCalculate != null) {
                     long start = System.currentTimeMillis();

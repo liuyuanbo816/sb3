@@ -20,10 +20,14 @@ public class BrowserSecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
         httpSecurity.formLogin()
+                .loginPage("/my-login.html")
+                .loginProcessingUrl("/authentication/form")
+                .usernameParameter("uname").passwordParameter("pass")
                 .and()
-                .authorizeHttpRequests().anyRequest().authenticated()
+                .authorizeHttpRequests().requestMatchers("/my-login.html").permitAll()
                 .and()
                 .csrf().disable();
         return httpSecurity.build();
     }
+
 }

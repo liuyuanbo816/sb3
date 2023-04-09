@@ -1,5 +1,6 @@
 package org.zmz.sb3.security.browser.config;
 
+import jakarta.annotation.Resource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -9,6 +10,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.savedrequest.HttpSessionRequestCache;
+import org.zmz.sb3.security.browser.handler.MyAuthenticationFailureHandler;
+import org.zmz.sb3.security.browser.handler.MyAuthenticationSuccessHandler;
 import org.zmz.sb3.security.core.properties.SecurityProperties;
 
 @Configuration
@@ -17,6 +20,12 @@ public class BrowserSecurityConfig {
 
     @Autowired
     SecurityProperties securityProperties;
+
+    @Resource
+    MyAuthenticationSuccessHandler myAuthenticationSuccessHandler;
+
+    @Resource
+    MyAuthenticationFailureHandler myAuthenticationFailureHandler;
 
     @Bean
     public PasswordEncoder passwordEncoder() {
@@ -31,9 +40,11 @@ public class BrowserSecurityConfig {
                 .loginPage("/authentication/required")
                 .loginProcessingUrl("/authentication/form")
                 .usernameParameter("uname").passwordParameter("pwd")
+                .successHandler(myAuthenticationSuccessHandler)
+                .failureHandler(myAuthenticationFailureHandler)
                 .and()
                 .authorizeHttpRequests()
-                .requestMatchers("/authentication/required", securityProperties.getBrowser().getLoginPage())
+                .requestMatchers("/error", "/authentication/required", securityProperties.getBrowser().getLoginPage())
                 .permitAll()
                 .anyRequest().authenticated()
                 .and()

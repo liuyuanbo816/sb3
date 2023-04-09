@@ -5,3 +5,7 @@ spring:
     name: sb3-security-examples
 file:
   tmp-path: D:/worksp/Toolbox/idea2023/sb3/sb3-security/sb3-security-examples/src/main/resources/tmp/
+sb3:
+  security:
+    browser:
+      loginPage: /example-login.html

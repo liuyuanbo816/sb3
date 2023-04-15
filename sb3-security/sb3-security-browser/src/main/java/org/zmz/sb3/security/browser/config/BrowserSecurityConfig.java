@@ -40,6 +40,8 @@ public class BrowserSecurityConfig {
         requestCache.setMatchingRequestParameterName(null);
         ValidateCodeFilter validateCodeFilter = new ValidateCodeFilter();
         validateCodeFilter.setMyAuthenticationFailureHandler(myAuthenticationFailureHandler);
+        validateCodeFilter.setSecurityProperties(securityProperties);
+        validateCodeFilter.afterPropertiesSet();
         httpSecurity
                 .addFilterBefore(validateCodeFilter, UsernamePasswordAuthenticationFilter.class)
                 .formLogin()
@@ -50,7 +52,7 @@ public class BrowserSecurityConfig {
                 .failureHandler(myAuthenticationFailureHandler)
                 .and()
                 .authorizeHttpRequests()
-                .requestMatchers("/error", "/authentication/required", "/code/image","/favicon.ico", securityProperties.getBrowser().getLoginPage())
+                .requestMatchers("/error", "/authentication/required", "/code/image", "/favicon.ico", securityProperties.getBrowser().getLoginPage())
                 .permitAll()
                 .anyRequest().authenticated()
                 .and()

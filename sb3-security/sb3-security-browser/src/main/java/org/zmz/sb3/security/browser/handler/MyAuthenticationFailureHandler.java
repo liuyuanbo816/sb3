@@ -10,6 +10,7 @@ import org.springframework.http.MediaType;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.authentication.SimpleUrlAuthenticationFailureHandler;
 import org.springframework.stereotype.Component;
+import org.zmz.sb3.security.browser.response.SimpleResponse;
 import org.zmz.sb3.security.core.properties.LoginType;
 import org.zmz.sb3.security.core.properties.SecurityProperties;
 
@@ -32,7 +33,7 @@ public class MyAuthenticationFailureHandler extends SimpleUrlAuthenticationFailu
             response.setStatus(HttpStatus.INTERNAL_SERVER_ERROR.value());
             response.setContentType(MediaType.APPLICATION_JSON_VALUE);
             response.setCharacterEncoding(StandardCharsets.UTF_8.name());
-            response.getWriter().write(objectMapper.writeValueAsString(exception));
+            response.getWriter().write(objectMapper.writeValueAsString(new SimpleResponse(exception.getMessage())));
         } else {
             super.onAuthenticationFailure(request, response, exception);
         }

@@ -9,10 +9,12 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.security.web.savedrequest.HttpSessionRequestCache;
 import org.zmz.sb3.security.browser.handler.MyAuthenticationFailureHandler;
 import org.zmz.sb3.security.browser.handler.MyAuthenticationSuccessHandler;
 import org.zmz.sb3.security.core.properties.SecurityProperties;
+import org.zmz.sb3.security.core.validate.code.ValidateCodeFilter;
 
 @Configuration
 @EnableWebSecurity
@@ -36,7 +38,11 @@ public class BrowserSecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
         HttpSessionRequestCache requestCache = new HttpSessionRequestCache();
         requestCache.setMatchingRequestParameterName(null);
-        httpSecurity.formLogin()
+        ValidateCodeFilter validateCodeFilter = new ValidateCodeFilter();
+        validateCodeFilter.setMyAuthenticationFailureHandler(myAuthenticationFailureHandler);
+        httpSecurity
+                .addFilterBefore(validateCodeFilter, UsernamePasswordAuthenticationFilter.class)
+                .formLogin()
                 .loginPage("/authentication/required")
                 .loginProcessingUrl("/authentication/form")
                 .usernameParameter("uname").passwordParameter("pwd")
@@ -44,7 +50,7 @@ public class BrowserSecurityConfig {
                 .failureHandler(myAuthenticationFailureHandler)
                 .and()
                 .authorizeHttpRequests()
-                .requestMatchers("/error", "/authentication/required", securityProperties.getBrowser().getLoginPage())
+                .requestMatchers("/error", "/authentication/required", "/code/image","/favicon.ico", securityProperties.getBrowser().getLoginPage())
                 .permitAll()
                 .anyRequest().authenticated()
                 .and()

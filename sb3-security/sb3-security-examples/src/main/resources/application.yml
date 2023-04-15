@@ -9,4 +9,4 @@ sb3:
   security:
     browser:
       #loginPage: /example-login.html
-      loginType: REDIRECT
+      loginType: JSON

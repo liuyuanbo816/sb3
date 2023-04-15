@@ -2,8 +2,11 @@ package org.zmz.sb3.security.core.validate.code;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.ServletRequestUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.zmz.sb3.security.core.properties.SecurityProperties;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -16,6 +19,9 @@ public class ValidateCodeController {
 
     public static final String SESSION_KEY = "SESSION_KEY_IMAGE_CODE";
 
+    @Autowired
+    private SecurityProperties securityProperties;
+
     @RequestMapping("/code/image")
     public void imageCode(HttpServletRequest request, HttpServletResponse response) throws IOException {
         //生成验证码
@@ -27,8 +33,8 @@ public class ValidateCodeController {
     }
 
     private ImageCode createImageCode(HttpServletRequest request) {
-        int width = 67;
-        int height = 23;
+        int width = ServletRequestUtils.getIntParameter(request, "width", securityProperties.getCode().getImage().getWidth());
+        int height = ServletRequestUtils.getIntParameter(request, "height", securityProperties.getCode().getImage().getHeight());
         BufferedImage image = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
 
         Graphics g = image.getGraphics();
@@ -51,7 +57,7 @@ public class ValidateCodeController {
 
         StringBuilder sRand = new StringBuilder();
 
-        for (int i = 0; i < 4; i++) {
+        for (int i = 0; i < securityProperties.getCode().getImage().getLength(); i++) {
             String r = String.valueOf(random.nextInt(10));
             sRand.append(r);
             g.setColor(
@@ -66,7 +72,7 @@ public class ValidateCodeController {
         }
 
         g.dispose();
-        return new ImageCode(image, sRand.toString(), 60);
+        return new ImageCode(image, sRand.toString(), securityProperties.getCode().getImage().getExpireIn());
     }
 
     /**

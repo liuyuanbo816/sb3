@@ -10,3 +10,7 @@ sb3:
     browser:
       #loginPage: /example-login.html
       loginType: JSON
+    code:
+      image:
+        width: 100
+        length: 6

@@ -76,7 +76,7 @@ public class BrowserSecurityConfig {
                     .failureHandler(myAuthenticationFailureHandler)
                 .and()
                 .authorizeHttpRequests()
-                .requestMatchers("/error", "/authentication/required", "/code/image", "/favicon.ico", securityProperties.getBrowser().getLoginPage())
+                .requestMatchers("/error", "/authentication/required", "/code/*", "/favicon.ico", securityProperties.getBrowser().getLoginPage())
                 .permitAll()
                 .anyRequest().authenticated()
                 .and()

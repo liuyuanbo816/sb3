@@ -1,15 +1,15 @@
 package org.zmz.sb3.security.examples.code;
 
-import jakarta.servlet.http.HttpServletRequest;
-import org.zmz.sb3.security.core.validate.code.image.ImageCode;
+import org.springframework.web.context.request.ServletWebRequest;
+import org.zmz.sb3.security.core.validate.code.ValidateCode;
 import org.zmz.sb3.security.core.validate.code.ValidateCodeGenerator;
 
 //@Component("imageValidateCodeGenerator")
-public class ExampleImageCodeGenerator implements ValidateCodeGenerator<ImageCode> {
+public class ExampleImageCodeGenerator implements ValidateCodeGenerator<ValidateCode> {
 
-    @Override
-    public ImageCode generateCode(HttpServletRequest request) {
+    public ValidateCode generateCode(ServletWebRequest request) {
         System.out.println(">>>>>> 自定义图形验证码生成逻辑 >>>>>>");
         return null;
     }
+
 }

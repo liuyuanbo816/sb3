@@ -2,6 +2,7 @@ package org.zmz.sb3.security.core.validate.code.image;
 
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.web.bind.ServletRequestUtils;
+import org.springframework.web.context.request.ServletWebRequest;
 import org.zmz.sb3.security.core.properties.SecurityProperties;
 import org.zmz.sb3.security.core.validate.code.ValidateCodeGenerator;
 
@@ -22,7 +23,8 @@ public class ImageValidateCodeGenerator implements ValidateCodeGenerator<ImageCo
     }
 
     @Override
-    public ImageCode generateCode(HttpServletRequest request) {
+    public ImageCode generateCode(ServletWebRequest servletWebRequest) {
+        HttpServletRequest request = servletWebRequest.getRequest();
         int width = ServletRequestUtils.getIntParameter(request, "width", securityProperties.getCode().getImage().getWidth());
         int height = ServletRequestUtils.getIntParameter(request, "height", securityProperties.getCode().getImage().getHeight());
         BufferedImage image = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);

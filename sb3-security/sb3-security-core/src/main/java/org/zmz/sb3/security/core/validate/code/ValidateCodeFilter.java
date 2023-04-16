@@ -13,6 +13,7 @@ import org.springframework.web.bind.ServletRequestBindingException;
 import org.springframework.web.bind.ServletRequestUtils;
 import org.springframework.web.filter.OncePerRequestFilter;
 import org.zmz.sb3.security.core.properties.SecurityProperties;
+import org.zmz.sb3.security.core.validate.ValidateCodeProcessor;
 import org.zmz.sb3.security.core.validate.code.image.ImageCode;
 
 import java.io.IOException;
@@ -70,7 +71,8 @@ public class ValidateCodeFilter extends OncePerRequestFilter implements Initiali
 
     private void validate(HttpServletRequest request) throws ServletRequestBindingException {
         HttpSession session = request.getSession();
-        ImageCode codeInSession = (ImageCode) session.getAttribute(ValidateCodeController.SESSION_KEY_IMAGE);
+        String sessionKey = ValidateCodeProcessor.SESSION_KEY_PREFIX + "IMAGE";
+        ImageCode codeInSession = (ImageCode) session.getAttribute(sessionKey);
         String codeInRequest = ServletRequestUtils.getStringParameter(request, "imageCode");
 
         if (!StringUtils.hasLength(codeInRequest)) {
@@ -86,6 +88,6 @@ public class ValidateCodeFilter extends OncePerRequestFilter implements Initiali
             throw new ValidateCodeException("验证码不匹配");
         }
 
-        session.removeAttribute(ValidateCodeController.SESSION_KEY_IMAGE);
+        session.removeAttribute(sessionKey);
     }
 }

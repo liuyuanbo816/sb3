@@ -1,7 +1,7 @@
 package org.zmz.sb3.security.core.validate.code;
 
-import jakarta.servlet.http.HttpServletRequest;
+import org.springframework.web.context.request.ServletWebRequest;
 
 public interface ValidateCodeGenerator<T extends ValidateCode> {
-    T generateCode(HttpServletRequest request);
+    T generateCode(ServletWebRequest request);
 }

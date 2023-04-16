@@ -66,7 +66,7 @@ public class BrowserSecurityConfig {
                 .rememberMe()
                     .tokenRepository(persistentTokenRepository())
                     .userDetailsService(myUserDetailsServiceImpl)
-                    .tokenValiditySeconds(securityProperties.getRememberMeTokenExpireIn())
+                    .tokenValiditySeconds(securityProperties.getBrowser().getRememberMeTokenExpireIn())
                 .and()
                 .formLogin()
                     .loginPage("/authentication/required")

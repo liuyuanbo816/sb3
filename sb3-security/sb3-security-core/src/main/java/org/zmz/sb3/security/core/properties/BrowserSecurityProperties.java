@@ -5,6 +5,8 @@ public class BrowserSecurityProperties {
     //默认 JSON
     private LoginType loginType = LoginType.JSON;
 
+    private int rememberMeTokenExpireIn = 3600;
+
     public String getLoginPage() {
         return loginPage;
     }
@@ -19,5 +21,13 @@ public class BrowserSecurityProperties {
 
     public void setLoginType(LoginType loginType) {
         this.loginType = loginType;
+    }
+
+    public int getRememberMeTokenExpireIn() {
+        return rememberMeTokenExpireIn;
+    }
+
+    public void setRememberMeTokenExpireIn(int rememberMeTokenExpireIn) {
+        this.rememberMeTokenExpireIn = rememberMeTokenExpireIn;
     }
 }

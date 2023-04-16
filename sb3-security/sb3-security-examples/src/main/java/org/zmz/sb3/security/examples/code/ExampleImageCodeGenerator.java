@@ -1,7 +1,7 @@
 package org.zmz.sb3.security.examples.code;
 
 import jakarta.servlet.http.HttpServletRequest;
-import org.zmz.sb3.security.core.validate.code.ImageCode;
+import org.zmz.sb3.security.core.validate.code.image.ImageCode;
 import org.zmz.sb3.security.core.validate.code.ValidateCodeGenerator;
 
 //@Component("imageValidateCodeGenerator")

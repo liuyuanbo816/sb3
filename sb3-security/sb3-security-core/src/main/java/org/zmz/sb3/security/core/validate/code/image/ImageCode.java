@@ -1,4 +1,6 @@
-package org.zmz.sb3.security.core.validate.code;
+package org.zmz.sb3.security.core.validate.code.image;
+
+import org.zmz.sb3.security.core.validate.code.ValidateCode;
 
 import java.awt.image.BufferedImage;
 import java.time.LocalDateTime;

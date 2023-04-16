@@ -1,8 +1,9 @@
-package org.zmz.sb3.security.core.validate.code;
+package org.zmz.sb3.security.core.validate.code.image;
 
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.web.bind.ServletRequestUtils;
 import org.zmz.sb3.security.core.properties.SecurityProperties;
+import org.zmz.sb3.security.core.validate.code.ValidateCodeGenerator;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;

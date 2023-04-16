@@ -6,6 +6,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 public class SecurityProperties {
     private BrowserSecurityProperties browser = new BrowserSecurityProperties();
     private ValidateCodeProperties code = new ValidateCodeProperties();
+    private int rememberMeTokenExpireIn = 3600;
 
     public BrowserSecurityProperties getBrowser() {
         return browser;
@@ -21,5 +22,13 @@ public class SecurityProperties {
 
     public void setCode(ValidateCodeProperties code) {
         this.code = code;
+    }
+
+    public int getRememberMeTokenExpireIn() {
+        return rememberMeTokenExpireIn;
+    }
+
+    public void setRememberMeTokenExpireIn(int rememberMeTokenExpireIn) {
+        this.rememberMeTokenExpireIn = rememberMeTokenExpireIn;
     }
 }

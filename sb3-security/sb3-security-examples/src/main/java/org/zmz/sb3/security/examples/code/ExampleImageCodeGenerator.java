@@ -1,11 +1,10 @@
 package org.zmz.sb3.security.examples.code;
 
 import jakarta.servlet.http.HttpServletRequest;
-import org.springframework.stereotype.Component;
 import org.zmz.sb3.security.core.validate.code.ImageCode;
 import org.zmz.sb3.security.core.validate.code.ValidateCodeGenerator;
 
-@Component("imageValidateCodeGenerator")
+//@Component("imageValidateCodeGenerator")
 public class ExampleImageCodeGenerator implements ValidateCodeGenerator<ImageCode> {
 
     @Override

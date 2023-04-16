@@ -3,6 +3,11 @@ server:
 spring:
   application:
     name: sb3-security-examples
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mariadb://localhost:3306/mariadb10
+    username: root
+    password: 123456
 file:
   tmp-path: D:/worksp/Toolbox/idea2023/sb3/sb3-security/sb3-security-examples/src/main/resources/tmp/
 sb3:
@@ -10,8 +15,8 @@ sb3:
     browser:
       #loginPage: /example-login.html
       loginType: JSON
-    code:
-      image:
-        width: 100
-        length: 6
-        url: /user/*
+    #code:
+      #image:
+        #width: 100
+        #length: 6
+        #url: /user/*

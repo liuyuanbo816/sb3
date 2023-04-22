@@ -12,4 +12,10 @@ public interface ValidateCodeProcessor {
      * 真正执行 验证码 整个流程的方法
      */
     void doInvoke(ServletWebRequest request) throws Exception;
+
+    /**
+     * 校验验证码
+     */
+    void validate(ServletWebRequest servletWebRequest);
+
 }

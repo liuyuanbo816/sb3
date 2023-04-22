@@ -10,4 +10,12 @@ public class CommonsLang3StringUtilTest {
         String s1 = StringUtils.substringAfter(s, "/code/");
         System.out.println(s1);
     }
+
+    @Test
+    public void testSubStringBefore() {
+        String s = "smsValidateCodeProcessor";
+        String sub = "ValidateCodeProcessor";
+        String prefix = StringUtils.substringBefore(s, sub);
+        System.out.println(prefix);
+    }
 }

@@ -1,6 +1,7 @@
 package org.zmz.sb3.security.core.properties;
 
 public class BrowserSecurityProperties {
+    // 默认登录界面
     private String loginPage = "/my-login.html";
     //默认 JSON
     private LoginType loginType = LoginType.JSON;

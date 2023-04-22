@@ -8,31 +8,24 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.web.SecurityFilterChain;
-import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.security.web.authentication.rememberme.JdbcTokenRepositoryImpl;
 import org.springframework.security.web.authentication.rememberme.PersistentTokenRepository;
 import org.springframework.security.web.savedrequest.HttpSessionRequestCache;
-import org.zmz.sb3.security.browser.handler.MyAuthenticationFailureHandler;
-import org.zmz.sb3.security.browser.handler.MyAuthenticationSuccessHandler;
+import org.zmz.sb3.security.core.authentication.FormAuthenticationConfig;
 import org.zmz.sb3.security.core.properties.SecurityProperties;
-import org.zmz.sb3.security.core.validate.code.SmsCodeFilter;
-import org.zmz.sb3.security.core.validate.code.ValidateCodeFilter;
+import org.zmz.sb3.security.core.validate.code.ValidateCodeSecurityConfig;
 import org.zmz.sb3.security.core.validate.code.mobile.SmsCodeAuthenticationSecurityConfig;
 
 import javax.sql.DataSource;
 
+import static org.zmz.sb3.security.core.properties.SecurityConstants.*;
+
 @Configuration
 @EnableWebSecurity
-public class BrowserSecurityConfig {
+public class BrowserSecurityConfig extends FormAuthenticationConfig {
 
     @Autowired
     SecurityProperties securityProperties;
-
-    @Resource
-    MyAuthenticationSuccessHandler myAuthenticationSuccessHandler;
-
-    @Resource
-    MyAuthenticationFailureHandler myAuthenticationFailureHandler;
 
     @Resource
     private DataSource dataSource;
@@ -42,6 +35,9 @@ public class BrowserSecurityConfig {
 
     @Resource
     private SmsCodeAuthenticationSecurityConfig smsCodeAuthenticationSecurityConfig;
+
+    @Resource
+    ValidateCodeSecurityConfig validateCodeSecurityConfig;
 
     @Bean
     public PersistentTokenRepository persistentTokenRepository() {
@@ -57,39 +53,29 @@ public class BrowserSecurityConfig {
         HttpSessionRequestCache requestCache = new HttpSessionRequestCache();
         requestCache.setMatchingRequestParameterName(null);
 
-        ValidateCodeFilter validateCodeFilter = new ValidateCodeFilter();
-        validateCodeFilter.setMyAuthenticationFailureHandler(myAuthenticationFailureHandler);
-        validateCodeFilter.setSecurityProperties(securityProperties);
-        validateCodeFilter.afterPropertiesSet();
-
-        SmsCodeFilter smsCodeFilter = new SmsCodeFilter();
-        smsCodeFilter.setMyAuthenticationFailureHandler(myAuthenticationFailureHandler);
-        smsCodeFilter.setSecurityProperties(securityProperties);
-        smsCodeFilter.afterPropertiesSet();
-
-        return httpSecurity
-                .addFilterBefore(smsCodeFilter, UsernamePasswordAuthenticationFilter.class)
-                .addFilterBefore(validateCodeFilter, UsernamePasswordAuthenticationFilter.class)
+        formAuthenticationConfig(httpSecurity);
+        return httpSecurity.apply(validateCodeSecurityConfig)
+                .and().apply(smsCodeAuthenticationSecurityConfig)
+                .and()
                 .rememberMe()
                     .tokenRepository(persistentTokenRepository())
                     .userDetailsService(myUserDetailsServiceImpl)
                     .tokenValiditySeconds(securityProperties.getBrowser().getRememberMeTokenExpireIn())
                 .and()
-                .formLogin()
-                    .loginPage("/authentication/required")
-                    .loginProcessingUrl("/authentication/form")
-                    .usernameParameter("uname").passwordParameter("pwd")
-                    .successHandler(myAuthenticationSuccessHandler)
-                    .failureHandler(myAuthenticationFailureHandler)
-                .and()
                 .authorizeHttpRequests()
-                .requestMatchers("/error", "/authentication/required", "/code/*", "/favicon.ico", securityProperties.getBrowser().getLoginPage())
-                .permitAll()
-                .anyRequest().authenticated()
+                    .requestMatchers(
+                            DEFAULT_TOMCAT_ERROR_PATH,
+                            DEFAULT_REQUIRE_AUTHENTICATION_URL,
+                            DEFAULT_VALIDATE_CODE_URL_PREFIX+"/*",
+                            DEFAULT_FAVICON_REQUEST_PATH,
+                            securityProperties.getBrowser().getLoginPage()
+                    )
+                    .permitAll()
+                    .anyRequest().authenticated()
                 .and()
-                .csrf().disable().requestCache(cache -> cache.requestCache(requestCache))
-                .apply(smsCodeAuthenticationSecurityConfig)
-                .and().build();
+                .csrf().disable()
+                .requestCache(cache -> cache.requestCache(requestCache))
+                .build();
     }
 
 }

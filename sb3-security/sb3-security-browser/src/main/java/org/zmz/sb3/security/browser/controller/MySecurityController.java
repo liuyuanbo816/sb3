@@ -20,10 +20,12 @@ import org.zmz.sb3.security.core.properties.SecurityProperties;
 
 import java.io.IOException;
 
-@RestController
-public class BrowserSecurityController {
+import static org.zmz.sb3.security.core.properties.SecurityConstants.DEFAULT_REQUIRE_AUTHENTICATION_URL;
 
-    private static final Logger LOG = LoggerFactory.getLogger(BrowserSecurityController.class);
+@RestController
+public class MySecurityController {
+
+    private static final Logger LOG = LoggerFactory.getLogger(MySecurityController.class);
 
     private static final RequestCache requestCache = new HttpSessionRequestCache();
     private static final RedirectStrategy redirectStrategy = new DefaultRedirectStrategy();
@@ -31,7 +33,7 @@ public class BrowserSecurityController {
     @Autowired
     SecurityProperties securityProperties;
 
-    @RequestMapping("/authentication/required")
+    @RequestMapping(DEFAULT_REQUIRE_AUTHENTICATION_URL)
     @ResponseStatus(HttpStatus.UNAUTHORIZED)
     public SimpleResponse authenticationRequired(HttpServletRequest httpServletRequest,
                                                  HttpServletResponse httpServletResponse) throws IOException {

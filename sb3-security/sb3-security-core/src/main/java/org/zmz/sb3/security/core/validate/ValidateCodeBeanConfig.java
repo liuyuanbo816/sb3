@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.zmz.sb3.security.core.properties.SecurityProperties;
 import org.zmz.sb3.security.core.validate.code.ValidateCodeGenerator;
 import org.zmz.sb3.security.core.validate.code.image.ImageCode;
@@ -29,5 +31,10 @@ public class ValidateCodeBeanConfig {
     @ConditionalOnMissingBean(SmsSender.class)
     public SmsSender defaultSmsSender() {
         return new DefaultSmsSender();
+    }
+
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
     }
 }

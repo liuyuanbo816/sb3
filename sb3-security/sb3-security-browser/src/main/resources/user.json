@@ -8,5 +8,10 @@
     "username": "bbb",
     "password": "123456",
     "authorities": "admin"
+  },
+  {
+    "username": "19912345678",
+    "password": "123456",
+    "authorities": "admin"
   }
 ]

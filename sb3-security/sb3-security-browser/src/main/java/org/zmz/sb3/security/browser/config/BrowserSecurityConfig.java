@@ -7,8 +7,6 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.security.web.authentication.rememberme.JdbcTokenRepositoryImpl;
@@ -17,7 +15,9 @@ import org.springframework.security.web.savedrequest.HttpSessionRequestCache;
 import org.zmz.sb3.security.browser.handler.MyAuthenticationFailureHandler;
 import org.zmz.sb3.security.browser.handler.MyAuthenticationSuccessHandler;
 import org.zmz.sb3.security.core.properties.SecurityProperties;
+import org.zmz.sb3.security.core.validate.code.SmsCodeFilter;
 import org.zmz.sb3.security.core.validate.code.ValidateCodeFilter;
+import org.zmz.sb3.security.core.validate.code.mobile.SmsCodeAuthenticationSecurityConfig;
 
 import javax.sql.DataSource;
 
@@ -37,12 +37,11 @@ public class BrowserSecurityConfig {
     @Resource
     private DataSource dataSource;
 
+    @Resource
     private UserDetailsService myUserDetailsServiceImpl;
 
-    @Bean
-    public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
-    }
+    @Resource
+    private SmsCodeAuthenticationSecurityConfig smsCodeAuthenticationSecurityConfig;
 
     @Bean
     public PersistentTokenRepository persistentTokenRepository() {
@@ -57,11 +56,19 @@ public class BrowserSecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
         HttpSessionRequestCache requestCache = new HttpSessionRequestCache();
         requestCache.setMatchingRequestParameterName(null);
+
         ValidateCodeFilter validateCodeFilter = new ValidateCodeFilter();
         validateCodeFilter.setMyAuthenticationFailureHandler(myAuthenticationFailureHandler);
         validateCodeFilter.setSecurityProperties(securityProperties);
         validateCodeFilter.afterPropertiesSet();
-        httpSecurity
+
+        SmsCodeFilter smsCodeFilter = new SmsCodeFilter();
+        smsCodeFilter.setMyAuthenticationFailureHandler(myAuthenticationFailureHandler);
+        smsCodeFilter.setSecurityProperties(securityProperties);
+        smsCodeFilter.afterPropertiesSet();
+
+        return httpSecurity
+                .addFilterBefore(smsCodeFilter, UsernamePasswordAuthenticationFilter.class)
                 .addFilterBefore(validateCodeFilter, UsernamePasswordAuthenticationFilter.class)
                 .rememberMe()
                     .tokenRepository(persistentTokenRepository())
@@ -80,8 +87,9 @@ public class BrowserSecurityConfig {
                 .permitAll()
                 .anyRequest().authenticated()
                 .and()
-                .csrf().disable().requestCache(cache -> cache.requestCache(requestCache));
-        return httpSecurity.build();
+                .csrf().disable().requestCache(cache -> cache.requestCache(requestCache))
+                .apply(smsCodeAuthenticationSecurityConfig)
+                .and().build();
     }
 
 }

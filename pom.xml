@@ -14,6 +14,7 @@
         <module>sb3-security/sb3-security-browser</module>
         <module>sb3-security/sb3-security-app</module>
         <module>sb3-security/sb3-security-examples</module>
+        <module>sb3-rabbitmq</module>
     </modules>
 
     <properties>

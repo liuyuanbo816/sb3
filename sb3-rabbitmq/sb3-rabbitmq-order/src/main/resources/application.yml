@@ -1,0 +1,12 @@
+server:
+  port: 11011
+db:
+  host: 192.168.110.180
+spring:
+  application:
+    name: sb3-rabbitmq-order
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mariadb://${db.host}:3316/meishi
+    username: root
+    password: 123456

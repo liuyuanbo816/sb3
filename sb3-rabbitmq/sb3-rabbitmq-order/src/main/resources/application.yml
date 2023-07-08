@@ -10,3 +10,6 @@ spring:
     url: jdbc:mariadb://${db.host}:3316/meishi
     username: root
     password: 123456
+mybatis-plus:
+  config-location: classpath*:/mapper/**/*Mapper.xml
+  typeAliasesPackage: org.zmz.sb3.rabbitmq.order.po

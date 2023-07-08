@@ -8,7 +8,7 @@ import java.math.BigDecimal;
 
 @Getter
 @Setter
-public class OrderMessage {
+public class OrderMessageDTO {
     private Long orderId;
     private OrderMessageStatus orderMessageStatus;
     private BigDecimal price;

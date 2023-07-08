@@ -15,6 +15,8 @@
         <module>sb3-security/sb3-security-app</module>
         <module>sb3-security/sb3-security-examples</module>
         <module>sb3-rabbitmq</module>
+        <module>sb3-nettychat</module>
+        <module>sb3-nettychat/sb3-nettychat-ch3</module>
     </modules>
 
     <properties>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ws测试Html</title>
+</head>
+<body>
+<div>发送消息:</div>
+<label>
+    <input type="text" id="msgContent"/>
+</label>
+<label>
+    <input type="button" value="点我发送" onclick="CHAT.chat()"/>
+</label>
+
+<div>接收消息:</div>
+<div id="receiveMsg" style="background-color: gainsboro"></div>
+
+<script type="application/javascript">
+    window.CHAT = {
+        socket: null,
+        init() {
+            if (window.WebSocket) {
+                this.socket = new WebSocket('ws://localhost:9081/ws')
+                this.socket.onopen = function () {
+                    console.log('连接建立成功...')
+                }
+                this.socket.onerror = function () {
+                    console.log('连接错误...')
+                }
+                this.socket.onclose = function () {
+                    console.log('连接关闭...')
+                }
+                CHAT.socket.onmessage = function (e) {
+                    console.log('接收到消息 ' + e.data)
+                    let receiveMsg = document.getElementById('receiveMsg');
+                    let receiveHtml = receiveMsg.innerHTML;
+                    receiveMsg.innerHTML = receiveHtml + "<br/>" + e.data
+                }
+            } else {
+                alert('浏览器不支持websocket协议')
+            }
+        },
+        chat() {
+            let msg = document.getElementById('msgContent');
+            CHAT.socket.send(msg.value)
+        }
+    }
+
+    window.CHAT.init()
+</script>
+</body>
+</html>

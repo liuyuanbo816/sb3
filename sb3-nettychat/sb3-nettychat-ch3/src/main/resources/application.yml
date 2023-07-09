@@ -1,0 +1,5 @@
+server:
+  port: 9082
+spring:
+  application:
+    name: sb3-netty-chat-ch3

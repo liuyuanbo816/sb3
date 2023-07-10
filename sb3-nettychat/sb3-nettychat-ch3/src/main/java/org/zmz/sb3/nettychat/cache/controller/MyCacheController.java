@@ -2,11 +2,11 @@ package org.zmz.sb3.nettychat.cache.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.zmz.sb3.nettychat.cache.Cache;
 import org.zmz.sb3.nettychat.cache.MyCache;
+
+import java.util.Map;
 
 @RestController
 @RequestMapping("/mycache")
@@ -29,6 +29,12 @@ public class MyCacheController {
 
     @GetMapping("/index3")
     public String index3() {
+        return cache.simpleCache();
+    }
+
+    @PostMapping("/index4/{id}")
+    @MyCache
+    public String index4(@RequestBody Map<String, ?> map, @PathVariable("id") String id) {
         return cache.simpleCache();
     }
 

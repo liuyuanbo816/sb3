@@ -17,6 +17,8 @@
         <module>sb3-rabbitmq</module>
         <module>sb3-nettychat</module>
         <module>sb3-nettychat/sb3-nettychat-ch3</module>
+        <module>sb3-redis</module>
+        <module>sb3-redis/sb3-redis-seckill</module>
     </modules>
 
     <properties>

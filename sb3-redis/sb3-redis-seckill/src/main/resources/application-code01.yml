@@ -4,6 +4,6 @@ mariadb:
   username: root
   password: '123456'
 redis:
-  host: 192.168.110.180
+  host: 172.29.71.176
   port: 6379
   password: '123456'

@@ -3,3 +3,8 @@ server:
 spring:
   application:
     name: sb3-netty-chat-ch3
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'

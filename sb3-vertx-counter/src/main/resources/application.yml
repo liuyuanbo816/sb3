@@ -1,0 +1,12 @@
+server:
+  port: 12011
+spring:
+  application:
+    name: sb3-vertx-counter
+  datasource:
+    driver-class-name: org.sqlite.JDBC
+    url: jdbc:sqlite:D:/worksp/ideaProjects/sb3/sb3-vertx-counter/src/main/resources/counter.db
+mybatis:
+  mapper-locations: classpath:mapper/*Mapper.xml
+  configuration:
+    jdbc-type-for-null: 'null'

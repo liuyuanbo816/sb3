@@ -19,6 +19,7 @@
         <module>sb3-nettychat/sb3-nettychat-ch3</module>
         <module>sb3-redis</module>
         <module>sb3-redis/sb3-redis-seckill</module>
+        <module>sb3-vertx-counter</module>
     </modules>
 
     <properties>

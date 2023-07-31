@@ -16,4 +16,9 @@ public class UserController {
         return R.ok(userId);
     }
 
+    @GetMapping("/greeting")
+    public String greeting() {
+        return "Hello Spring Security Greeting";
+    }
+
 }

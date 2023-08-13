@@ -14,7 +14,6 @@ public class DbUtil {
 
     private static DbUtil dbUtil;
 
-
     private SqlSessionTemplate sqlSessionTemplate;
 
     @Autowired

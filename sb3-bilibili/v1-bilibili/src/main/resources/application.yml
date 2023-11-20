@@ -10,3 +10,5 @@ spring:
     url: ${mariadb.url}
     username: ${mariadb.username}
     password: ${mariadb.password}
+mybatis:
+  mapper-locations: classpath*:mapper/*Mapper.xml

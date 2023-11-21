@@ -4,7 +4,7 @@ import lombok.Getter;
 
 @Getter
 public enum CodeMsg {
-    SUCCESS(0, "success"),
+    SUCCESS(0, "SUCCESS"),
     FAIL(500100, "SERVER_ERROR");
     //登录模块 5002xx
     //商品模块 5003xx

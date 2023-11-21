@@ -8,23 +8,17 @@
         <groupId>org.zmz</groupId>
         <artifactId>sb3</artifactId>
         <version>1.0-SNAPSHOT</version>
-        <relativePath>../../pom.xml</relativePath>
     </parent>
 
-    <artifactId>sb3-security-app</artifactId>
+    <groupId>zzjjcc</groupId>
+    <artifactId>sb3-bilibili</artifactId>
+
+    <packaging>pom</packaging>
 
     <properties>
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
-
-    <dependencies>
-        <dependency>
-            <groupId>org.zmz</groupId>
-            <artifactId>sb3-security-core</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
-    </dependencies>
 
 </project>

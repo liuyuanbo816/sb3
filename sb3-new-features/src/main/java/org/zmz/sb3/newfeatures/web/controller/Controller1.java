@@ -12,4 +12,10 @@ public class Controller1 {
         log.debug("c-1");
         return "c1";
     }
+
+    @GetMapping("/c2")
+    public String c2(String ip) {
+        log.debug("c-2");
+        return ip;
+    }
 }

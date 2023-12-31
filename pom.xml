@@ -23,6 +23,7 @@
         <module>sb3-vertx-counter</module>
         <module>sb3-bilibili</module>
         <module>sb3-bilibili/v1-bilibili</module>
+        <module>sb3-mybatis3</module>
     </modules>
 
     <properties>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.mybatis3.example.mapper.PersonMapper">
+    <select id="getPersonById" resultType="Person">
+        select *
+        from tb_person
+        where id = #{id}
+    </select>
+
+    <select id="getPersons" resultType="Person">
+        select *
+        from tb_person
+    </select>
+</mapper>

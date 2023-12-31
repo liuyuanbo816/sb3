@@ -4,8 +4,20 @@ spring:
   application:
     name: sb3-vertx-counter
   datasource:
-    driver-class-name: org.sqlite.JDBC
-    url: jdbc:sqlite:D:/worksp/ideaProjects/sb3/sb3-vertx-counter/src/main/resources/counter.db
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:h2test;DB_CLOSE_DELAY=-1;MODE=MySQL # mem指定数据库使用内存模式 MODE指定使用MySQL模式
+    username: root
+    password: root
+  sql:
+    init:
+      data-locations: classpath*:db/data.sql
+      schema-locations: classpath*:db/schema.sql
+  h2:
+    console:
+      path: /h2-console
+      enabled: on
+      settings:
+        web-allow-others: on
 mybatis:
   mapper-locations: classpath:mapper/*Mapper.xml
   configuration:

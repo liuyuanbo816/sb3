@@ -8,3 +8,6 @@ spring:
     password: '123456'
     driver-class-name: org.mariadb.jdbc.Driver
     url: jdbc:mariadb://localhost:3306/mytest?serverTimezone=Asia/Shanghai
+mybatis:
+  type-aliases-package: boot.mybatis3.pojo
+  mapper-locations: mapper/**/*Mapper.xml

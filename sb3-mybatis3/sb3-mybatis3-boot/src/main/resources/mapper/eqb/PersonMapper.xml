@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="boot.mybatis3.mapper.PersonMapper">
+    <select id="getDBNow" resultType="java.time.LocalDateTime">
+        select now()
+    </select>
+
+    <select id="getPersonById" resultType="boot.mybatis3.pojo.Person">
+        select *
+        from tb_person
+        where id = #{id}
+    </select>
+
+    <select id="getPersons" resultType="boot.mybatis3.pojo.Person">
+        select *
+        from tb_person
+    </select>
+</mapper>

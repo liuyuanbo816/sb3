@@ -5,7 +5,7 @@
 <configuration>
 
     <!--引入 jdbc.properties 文件-->
-    <properties resource="jdbc.properties"></properties>
+    <properties resource="jdbc.properties"/>
 
     <typeAliases>
         <package name="org.mybatis3.example.pojo"/>

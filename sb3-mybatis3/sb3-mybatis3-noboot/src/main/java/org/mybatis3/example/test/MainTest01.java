@@ -19,12 +19,13 @@ public class MainTest01 {
     }
 
     public static void main(String[] args) {
-        SqlSession sqlSession = getSqlSession();
-        PersonMapper personMapper = sqlSession.getMapper(PersonMapper.class);
-        Person person = personMapper.getPersonById(1L);
-        System.out.println(person);
-        System.out.println("============================");
-        List<Person> persons = personMapper.getPersons();
-        persons.forEach(System.out::println);
+        try (SqlSession sqlSession = getSqlSession()) {
+            PersonMapper personMapper = sqlSession.getMapper(PersonMapper.class);
+            Person person = personMapper.getPersonById(1L);
+            System.out.println(person);
+            System.out.println("============================");
+            List<Person> persons = personMapper.getPersons();
+            persons.forEach(System.out::println);
+        }
     }
 }

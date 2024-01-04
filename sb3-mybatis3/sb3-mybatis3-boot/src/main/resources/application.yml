@@ -1,0 +1,10 @@
+server:
+  port: 11111
+spring:
+  application:
+    name: sb3-mybatis3-boot
+  datasource:
+    username: root
+    password: '123456'
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mariadb://localhost:3306/mytest?serverTimezone=Asia/Shanghai

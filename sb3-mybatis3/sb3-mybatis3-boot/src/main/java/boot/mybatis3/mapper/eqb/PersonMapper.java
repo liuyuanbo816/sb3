@@ -1,4 +1,4 @@
-package boot.mybatis3.mapper;
+package boot.mybatis3.mapper.eqb;
 
 import boot.mybatis3.pojo.Person;
 

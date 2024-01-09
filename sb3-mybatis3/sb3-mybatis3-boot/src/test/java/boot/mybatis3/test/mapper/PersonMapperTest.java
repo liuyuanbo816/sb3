@@ -1,4 +1,4 @@
-package boot.mybatis3.test.mapper.eqb;
+package boot.mybatis3.test.mapper;
 
 import boot.mybatis3.mapper.eqb.PersonMapper;
 import boot.mybatis3.mapper.eqb.EqbTestMapper;

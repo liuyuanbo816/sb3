@@ -15,6 +15,7 @@
     <modules>
         <module>sb3-mybatis3-noboot</module>
         <module>sb3-mybatis3-boot</module>
+        <module>sb3-smallTools-Server</module>
     </modules>
 
     <properties>

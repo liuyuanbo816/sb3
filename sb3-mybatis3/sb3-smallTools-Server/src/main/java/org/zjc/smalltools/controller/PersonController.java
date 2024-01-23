@@ -1,6 +1,7 @@
 package org.zjc.smalltools.controller;
 
 import jakarta.annotation.Resource;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.zjc.smalltools.common.R;
 import org.zjc.smalltools.components.SwitchDataSourceComponent;
@@ -19,7 +20,7 @@ public class PersonController {
     SwitchDataSourceComponent switchDataSourceComponent;
 
     @PostMapping("/list")
-    public R<List<Person>> list(@RequestBody BaseRequest baseRequest) {
+    public R<List<Person>> list(@Validated @RequestBody BaseRequest baseRequest) {
         try {
             Method method = PersonMapper.class.getMethod("list");
             List<Person> res = switchDataSourceComponent.executeMapperMethod(baseRequest, PersonMapper.class, method);

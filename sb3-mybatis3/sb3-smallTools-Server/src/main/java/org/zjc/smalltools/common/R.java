@@ -29,6 +29,10 @@ public class R<T> {
         return new R<>(data);
     }
 
+    public static R<String> fail(String msg) {
+        return new R<>("999999", msg);
+    }
+
     public String getCode() {
         return code;
     }

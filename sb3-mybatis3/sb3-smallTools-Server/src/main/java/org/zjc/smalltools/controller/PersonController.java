@@ -1,15 +1,18 @@
 package org.zjc.smalltools.controller;
 
 import jakarta.annotation.Resource;
+import org.apache.ibatis.session.SqlSession;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 import org.zjc.smalltools.common.R;
 import org.zjc.smalltools.components.SwitchDataSourceComponent;
 import org.zjc.smalltools.mapper.PersonMapper;
 import org.zjc.smalltools.model.Person;
 import org.zjc.smalltools.vo.request.BaseRequest;
 
-import java.lang.reflect.Method;
 import java.util.List;
 
 @RestController
@@ -21,12 +24,10 @@ public class PersonController {
 
     @PostMapping("/list")
     public R<List<Person>> list(@Validated @RequestBody BaseRequest baseRequest) {
-        try {
-            Method method = PersonMapper.class.getMethod("list");
-            List<Person> res = switchDataSourceComponent.executeMapperMethod(baseRequest, PersonMapper.class, method);
-            return R.ok(res);
-        } catch (NoSuchMethodException e) {
-            throw new RuntimeException("list 不方法不存在 PersonMapper ");
+        try (SqlSession sqlSession = switchDataSourceComponent.getSqlSessionFromRequest(baseRequest)) {
+            PersonMapper personMapper = sqlSession.getMapper(PersonMapper.class);
+            List<Person> personList = personMapper.list();
+            return R.ok(personList);
         }
     }
 

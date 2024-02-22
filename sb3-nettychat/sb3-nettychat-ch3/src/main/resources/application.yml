@@ -3,6 +3,8 @@ server:
 spring:
   application:
     name: sb3-netty-chat-ch3
+  config:
+    import: conf/abc.yml
 management:
   endpoints:
     web:

@@ -5,6 +5,8 @@ spring:
     name: sb3-netty-chat-ch3
   config:
     import: conf/abc.yml
+  profiles:
+    active: dev
 management:
   endpoints:
     web:

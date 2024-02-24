@@ -7,4 +7,4 @@ spring:
     ansi:
       enabled: always
   config:
-    import: conf/mariadb.yml,conf/mybatis.yml,conf/redis.yml
+    import: conf/mariadb.yml,conf/mybatis.yml,conf/redis.yml,conf/rabbitmq.yml

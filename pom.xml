@@ -25,6 +25,7 @@
         <module>sb3-bilibili/v1-bilibili</module>
         <module>sb3-mybatis3</module>
         <module>sb3-rocketmq</module>
+        <module>sb3-kafka</module>
     </modules>
 
     <properties>

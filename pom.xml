@@ -26,6 +26,7 @@
         <module>sb3-mybatis3</module>
         <module>sb3-rocketmq</module>
         <module>sb3-kafka</module>
+        <module>leetcode</module>
     </modules>
 
     <properties>

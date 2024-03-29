@@ -10,5 +10,6 @@ public class LC9 {
             int i = x % 10;
             x = x / 10;
         }
+        return false;
     }
 }

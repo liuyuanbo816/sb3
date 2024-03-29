@@ -18,9 +18,7 @@ public class LC2 {
 
         int minLen = Math.min(l1Len, l2Len);
 
-
-
-
+        return null;
     }
 
     public static int getListNodeLen(ListNode ln) {

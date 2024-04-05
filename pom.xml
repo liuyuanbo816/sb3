@@ -27,6 +27,7 @@
         <module>sb3-rocketmq</module>
         <module>sb3-kafka</module>
         <module>leetcode</module>
+        <module>sb3-distributed-lock</module>
     </modules>
 
     <properties>

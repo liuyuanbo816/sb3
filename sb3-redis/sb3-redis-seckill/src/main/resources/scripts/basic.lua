@@ -1,2 +1,2 @@
-s1 = 'hello lua'
+local s1 = 'hello lua'
 print(s1)

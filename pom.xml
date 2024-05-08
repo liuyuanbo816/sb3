@@ -28,6 +28,7 @@
         <module>sb3-kafka</module>
         <module>leetcode</module>
         <module>sb3-distributed-lock</module>
+        <module>sb3-bigdata</module>
     </modules>
 
     <properties>

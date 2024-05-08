@@ -29,12 +29,13 @@
         <module>leetcode</module>
         <module>sb3-distributed-lock</module>
         <module>sb3-bigdata</module>
+        <module>sb3-reactor-programing</module>
     </modules>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <spring-boot.version>3.2.2</spring-boot.version>
+        <spring-boot.version>3.2.4</spring-boot.version>
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
     </properties>

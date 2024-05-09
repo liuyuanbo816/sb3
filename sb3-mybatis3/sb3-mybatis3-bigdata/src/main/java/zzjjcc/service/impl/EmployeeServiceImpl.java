@@ -16,7 +16,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public Employee queryEmployeeById(int id) {
-        return null;
+        return employeeMapper.queryEmployeeById(id);
     }
 
     @Override
@@ -36,6 +36,6 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public List<Employee> getEmployees() {
-        return List.of();
+        return employeeMapper.getEmployees();
     }
 }

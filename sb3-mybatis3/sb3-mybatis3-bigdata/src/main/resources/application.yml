@@ -1,0 +1,12 @@
+server:
+  port: 10010
+spring:
+  application:
+    name: sb3-mybatis3-bigdata
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/hrdb?serverTimezone=Asia/Shanghai
+    username: root
+    password: '123456'
+  thymeleaf:
+    cache: off

@@ -17,16 +17,13 @@ import java.net.URISyntaxException;
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.NONE)
 public class HDFSAPITest {
 
-    private static final String HDFS_PATH = "hdfs://192.168.110.201:9010";
+    private static final String HDFS_PATH = "hdfs://192.168.234.201:9020";
     private static final String HDFS_USER = "root";
     private static FileSystem fs;
 
     @BeforeAll
     public static void beforeAll() {
         Configuration cfg = new Configuration();
-        cfg.set("dfs.replication", "1");
-        cfg.set("fs.defaultFS", HDFS_PATH);
-        cfg.set("hadoop.tmp.dir", "/home/zjc/bigdata/hadoop-3.3.6/tmp/hdp336");
 
         try {
             fs = FileSystem.get(new URI(HDFS_PATH), cfg, HDFS_USER);
@@ -42,7 +39,7 @@ public class HDFSAPITest {
 
     @Test
     public void testCreateDir() throws IOException {
-        fs.mkdirs(new Path("/home/zjc/bigdata/test/hdp-hdfs-api/t0"));
+        fs.mkdirs(new Path("/home/zzjjcc/app/bigdata/test/hdp-hdfs-api/t1"));
     }
 
 }

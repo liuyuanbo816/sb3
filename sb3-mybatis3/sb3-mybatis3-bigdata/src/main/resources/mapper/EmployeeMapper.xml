@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="zzjjcc.mapper.EmployeeMapper">
+
+    <resultMap id="baseResultMap" type="">
+
+    </resultMap>
+
+    <select id="queryEmployeeById" resultType="zzjjcc.model.Employee">
+        select *
+        from employees
+        <where>
+            employee_id = #{id}
+        </where>
+    </select>
+
+    <insert id="insertEmployee">
+    </insert>
+
+    <update id="updateEmployee">
+    </update>
+
+    <delete id="deleteEmployee">
+    </delete>
+
+    <select id="getEmployees" resultType="zzjjcc.model.Employee">
+    </select>
+</mapper>

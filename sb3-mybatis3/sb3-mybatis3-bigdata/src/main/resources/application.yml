@@ -10,6 +10,3 @@ spring:
 logging:
   level:
     zzjjcc: debug
-mybatis:
-  configuration:
-    map-underscore-to-camel-case: on

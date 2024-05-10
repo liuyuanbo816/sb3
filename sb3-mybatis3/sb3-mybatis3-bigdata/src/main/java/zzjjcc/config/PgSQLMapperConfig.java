@@ -6,6 +6,7 @@ import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
@@ -22,15 +23,18 @@ public class PgSQLMapperConfig {
     @Resource
     private DataSource pgsqlDataSource;
 
-    @Resource
-    org.apache.ibatis.session.Configuration globalMybatisConfiguration;
+    @Bean
+    @ConfigurationProperties(prefix = "mybatis.configuration.pgsql")
+    public org.apache.ibatis.session.Configuration globalPgSQLMybatisConfiguration() {
+        return new org.apache.ibatis.session.Configuration();
+    }
 
     @Bean(name = "pgsqlSqlSessionFactory")
     @Primary
     public SqlSessionFactory pgsqlSqlSessionFactory() throws Exception {
         SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
         sqlSessionFactoryBean.setDataSource(pgsqlDataSource);
-        sqlSessionFactoryBean.setConfiguration(globalMybatisConfiguration);
+        sqlSessionFactoryBean.setConfiguration(globalPgSQLMybatisConfiguration());
         sqlSessionFactoryBean.setMapperLocations(new PathMatchingResourcePatternResolver()
                 .getResources("classpath:mapper/pgsql/*Mapper.xml"));
         return sqlSessionFactoryBean.getObject();

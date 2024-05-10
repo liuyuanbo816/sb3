@@ -6,6 +6,7 @@ import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
@@ -22,15 +23,18 @@ public class MariaMapperConfig {
     @Resource
     private DataSource mariaDataSource;
 
-    @Resource
-    org.apache.ibatis.session.Configuration globalMybatisConfiguration;
+    @Bean
+    @ConfigurationProperties(prefix = "mybatis.configuration.maria")
+    public org.apache.ibatis.session.Configuration globalMariaMybatisConfiguration() {
+        return new org.apache.ibatis.session.Configuration();
+    }
 
     @Bean(name = "mariaSqlSessionFactory")
     @Primary
     public SqlSessionFactory mariaSqlSessionFactory() throws Exception {
         SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
         sqlSessionFactoryBean.setDataSource(mariaDataSource);
-        sqlSessionFactoryBean.setConfiguration(globalMybatisConfiguration);
+        sqlSessionFactoryBean.setConfiguration(globalMariaMybatisConfiguration());
         sqlSessionFactoryBean.setMapperLocations(new PathMatchingResourcePatternResolver()
                 .getResources("classpath:mapper/maria/*Mapper.xml"));
         return sqlSessionFactoryBean.getObject();

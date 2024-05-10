@@ -6,3 +6,8 @@ spring:
         jdbcUrl: jdbc:postgresql://localhost:5432/hrdb
         username: postgres
         password: '123456'
+
+mybatis:
+  configuration:
+    pgsql:
+      map-underscore-to-camel-case: on

@@ -21,13 +21,13 @@ public class BaseTest {
     DataSource mariaDataSource;
 
     @Autowired
-    DataSource dataSource;
+    DataSource mysqlDataSource;
 
     @Test
     public void testContext() throws SQLException {
-        if (dataSource != null) {
-            LOG.info("dataSource: {}", dataSource);
-            LOG.info("dataSource.getConnection(): {}", dataSource.getConnection());
+        if (mysqlDataSource != null) {
+            LOG.info("mysqlDataSource: {}", mysqlDataSource);
+            LOG.info("mysqlDataSource.getConnection(): {}", mysqlDataSource.getConnection());
         }
         if (mariaDataSource != null) {
             LOG.info("mariaDataSource: {}", mariaDataSource);

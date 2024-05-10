@@ -4,5 +4,5 @@ spring:
       hrdb:
         driverClassName: org.postgresql.Driver
         jdbcUrl: jdbc:postgresql://localhost:5432/hrdb
-        username: postgresql
+        username: postgres
         password: '123456'

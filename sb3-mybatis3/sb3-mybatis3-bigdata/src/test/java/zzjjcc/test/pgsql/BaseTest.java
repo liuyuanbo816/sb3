@@ -26,13 +26,16 @@ public class BaseTest {
     @Test
     public void testContext() throws SQLException {
         if (dataSource != null) {
-            LOG.info("{}", dataSource.getConnection());
+            LOG.info("dataSource: {}", dataSource);
+            LOG.info("dataSource.getConnection(): {}", dataSource.getConnection());
         }
         if (mariaDataSource != null) {
-            LOG.info("{}", mariaDataSource.getConnection());
+            LOG.info("mariaDataSource: {}", mariaDataSource);
+            LOG.info("mariaDataSource.getConnection(): {}", mariaDataSource.getConnection());
         }
         if (pgsqlDataSource != null) {
-            LOG.info("{}", pgsqlDataSource.getConnection());
+            LOG.info("pgsqlDataSource: {}", pgsqlDataSource);
+            LOG.info("pgsqlDataSource.getConnection(): {}", pgsqlDataSource.getConnection());
         }
     }
 

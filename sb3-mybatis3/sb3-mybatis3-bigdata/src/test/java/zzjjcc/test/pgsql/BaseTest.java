@@ -28,11 +28,11 @@ public class BaseTest {
         if (dataSource != null) {
             LOG.info("{}", dataSource.getConnection());
         }
-        if (pgsqlDataSource != null) {
-            LOG.info("{}", pgsqlDataSource.getConnection());
-        }
         if (mariaDataSource != null) {
             LOG.info("{}", mariaDataSource.getConnection());
+        }
+        if (pgsqlDataSource != null) {
+            LOG.info("{}", pgsqlDataSource.getConnection());
         }
     }
 

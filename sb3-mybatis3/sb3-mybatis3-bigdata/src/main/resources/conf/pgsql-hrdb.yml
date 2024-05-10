@@ -2,6 +2,7 @@ spring:
   datasource:
     pgsql:
       hrdb:
-        url: jdbc:postgresql://localhost:5432/hrdb
+        driverClassName: org.postgresql.Driver
+        jdbcUrl: jdbc:postgresql://localhost:5432/hrdb
         username: postgresql
         password: '123456'

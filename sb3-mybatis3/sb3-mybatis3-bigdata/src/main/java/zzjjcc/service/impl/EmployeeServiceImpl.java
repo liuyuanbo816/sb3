@@ -2,7 +2,7 @@ package zzjjcc.service.impl;
 
 import jakarta.annotation.Resource;
 import org.springframework.stereotype.Service;
-import zzjjcc.mapper.EmployeeMapper;
+import zzjjcc.mapper.pgsql.EmployeeMapper;
 import zzjjcc.model.Employee;
 import zzjjcc.service.EmployeeService;
 

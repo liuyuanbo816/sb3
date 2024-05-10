@@ -9,9 +9,9 @@ import javax.sql.DataSource;
 
 @Configuration
 public class DataSourceConfig {
-    @Bean(name = "dataSource")
+    @Bean(name = "mysqlDataSource")
     @ConfigurationProperties(prefix = "spring.datasource.mysql.hrdb")
-    public DataSource dataSource() {
+    public DataSource mysqlDataSource() {
         return DataSourceBuilder.create().build();
     }
 

@@ -1,0 +1,8 @@
+spring:
+  datasource:
+    maria:
+      hrdb:
+        driverClassName: org.mariadb.jdbc.Driver
+        jdbcUrl: jdbc:mariadb://localhost:3306/hrdb?serverTimezone=Asia/Shanghai
+        username: root
+        password: '123456'

@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import javax.sql.DataSource;
+import java.sql.SQLException;
 
 @SpringBootTest
 public class BaseTest {
@@ -16,9 +17,23 @@ public class BaseTest {
     @Autowired
     DataSource pgsqlDataSource;
 
+    @Autowired
+    DataSource mariaDataSource;
+
+    @Autowired
+    DataSource dataSource;
+
     @Test
-    public void testContext() {
-        LOG.info("{}", pgsqlDataSource);
+    public void testContext() throws SQLException {
+        if (dataSource != null) {
+            LOG.info("{}", dataSource.getConnection());
+        }
+        if (pgsqlDataSource != null) {
+            LOG.info("{}", pgsqlDataSource.getConnection());
+        }
+        if (mariaDataSource != null) {
+            LOG.info("{}", mariaDataSource.getConnection());
+        }
     }
 
 }

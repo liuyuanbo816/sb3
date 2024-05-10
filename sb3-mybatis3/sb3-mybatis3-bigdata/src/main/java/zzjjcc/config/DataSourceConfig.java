@@ -15,6 +15,12 @@ public class DataSourceConfig {
         return DataSourceBuilder.create().build();
     }
 
+    @Bean(name = "mariaDataSource")
+    @ConfigurationProperties(prefix = "spring.datasource.maria.hrdb")
+    public DataSource mariaDataSource() {
+        return DataSourceBuilder.create().build();
+    }
+
     @Bean(name = "pgsqlDataSource")
     @ConfigurationProperties(prefix = "spring.datasource.pgsql.hrdb")
     public DataSource pgsqlDataSource() {

@@ -5,7 +5,7 @@ spring:
         driverClassName: com.mysql.cj.jdbc.Driver
         jdbcUrl: jdbc:mysql://localhost:3306/hrdb?serverTimezone=Asia/Shanghai
         username: root
-        password:
+        password: '123456'
 
 mybatis:
   configuration:

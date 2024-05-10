@@ -4,7 +4,7 @@ spring:
   application:
     name: sb3-mybatis3-bigdata
   config:
-    import: conf/mysql-hrdb.yml,
+    import: conf/mysql-hrdb.yml,conf/pgsql-hrdb.yml,
   thymeleaf:
     cache: off
 logging:

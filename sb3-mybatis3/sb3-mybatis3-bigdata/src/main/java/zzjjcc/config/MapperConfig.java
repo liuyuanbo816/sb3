@@ -36,7 +36,7 @@ public class MapperConfig {
         sqlSessionFactoryBean.setDataSource(dataSource);
         sqlSessionFactoryBean.setConfiguration(globalMybatisConfiguration());
         sqlSessionFactoryBean.setMapperLocations(new PathMatchingResourcePatternResolver()
-                .getResources("classpath:mapper/*Mapper.xml"));
+                .getResources("classpath:mapper/mysql/*Mapper.xml"));
         return sqlSessionFactoryBean.getObject();
     }
 

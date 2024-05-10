@@ -10,8 +10,14 @@ import javax.sql.DataSource;
 @Configuration
 public class DataSourceConfig {
     @Bean(name = "dataSource")
-    @ConfigurationProperties(prefix = "spring.datasource.hrdb")
+    @ConfigurationProperties(prefix = "spring.datasource.mysql.hrdb")
     public DataSource dataSource() {
+        return DataSourceBuilder.create().build();
+    }
+
+    @Bean(name = "pgsqlDataSource")
+    @ConfigurationProperties(prefix = "spring.datasource.pgsql.hrdb")
+    public DataSource pgsqlDataSource() {
         return DataSourceBuilder.create().build();
     }
 }

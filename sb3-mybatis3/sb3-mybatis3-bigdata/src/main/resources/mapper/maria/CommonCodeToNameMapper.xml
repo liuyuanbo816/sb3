@@ -6,6 +6,6 @@
     <select id="commonCodeToName" resultType="java.util.Map">
         select ${itemName}
         from ${tableName}
-        where dir_code = ${codeValue}
+        where ${dbCodeField}=#{codeValue}
     </select>
 </mapper>

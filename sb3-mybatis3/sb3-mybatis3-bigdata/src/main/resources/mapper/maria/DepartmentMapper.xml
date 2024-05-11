@@ -19,4 +19,16 @@
         <include refid="baseSql"/>
         from departments
     </select>
+
+    <select id="getDepartmentName" resultType="java.lang.String">
+        select ${itemName}
+        from ${tableName}
+        where ${dbCodeField}=#{codeValue};
+    </select>
+
+    <select id="getDepartmentNameWithDTO" resultType="java.lang.String">
+        select ${itemName}
+        from ${tableName}
+        where ${dbCodeField}=#{codeValue};
+    </select>
 </mapper>

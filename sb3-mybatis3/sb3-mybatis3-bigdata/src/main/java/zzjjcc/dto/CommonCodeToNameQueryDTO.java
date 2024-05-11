@@ -1,9 +1,9 @@
 package zzjjcc.dto;
 
 public class CommonCodeToNameQueryDTO {
-    private String dbCodeField;
     private String itemName;
     private String tableName;
+    private String dbCodeField;
     private String codeValue;
 
     public String getDbCodeField() {

@@ -1,0 +1,1007 @@
+{
+  "errorCode": null,
+  "resultCode": "0",
+  "resultMsg": "",
+  "resultObject": [
+    {
+      "dirSort": null,
+      "com_acct_id": null,
+      "dirCode": "1ae090354b68410489a6c11f592676ae",
+      "dirId": 490,
+      "dirFullPath": "-1.490",
+      "dirType": "0",
+      "dirName": "用户相关数据",
+      "parentDirId": -1
+    },
+    {
+      "dirSort": null,
+      "com_acct_id": null,
+      "dirCode": "d0a76969e3fe40f2b2c7a1f5865ef7d4",
+      "dirId": 491,
+      "dirFullPath": "-1.491",
+      "dirType": "0",
+      "dirName": "企业自身数据",
+      "parentDirId": -1
+    },
+    {
+      "dirSort": null,
+      "com_acct_id": null,
+      "dirCode": "2fec168fe5554952bcc3e29a6b86410b",
+      "dirId": 492,
+      "dirFullPath": "-1.490.492",
+      "dirType": "0",
+      "dirName": "个人用户数据",
+      "parentDirId": 490
+    },
+    {
+      "dirSort": null,
+      "com_acct_id": null,
+      "dirCode": "b1a3eb83cbf24624bd589232d81b9f56",
+      "dirId": 493,
+      "dirFullPath": "-1.490.493",
+      "dirType": "0",
+      "dirName": "单位用户数据",
+      "parentDirId": 490
+    },
+    {
+      "dirSort": null,
+      "com_acct_id": null,
+      "dirCode": "e107e155ef3d46c9acfa1913347a117a",
+      "dirId": 494,
+      "dirFullPath": "-1.490.492.494",
+      "dirType": "0",
+      "dirName": "个人基本信息",
+      "parentDirId": 492
+    },
+    {
+      "dirSort": null,
+      "com_acct_id": null,
+      "dirCode": "bc641036c2f0442a9be6cdc8026cd856",
+      "dirId": 495,
+      "dirFullPath": "-1.490.492.495",
+      "dirType": "0",
+      "dirName": "个人账户和鉴别信息",
+      "parentDirId": 492
+    },
+    {
+      "dirSort": null,
+      "com_acct_id": null,
+      "dirCode": "17de8b6110af42e7b8f5f7af5d65c2b3",
+      "dirId": 496,
+      "dirFullPath": "-1.490.492.496",
+      "dirType": "0",
+      "dirName": "个人通信和上网信息",
+      "parentDirId": 492
+    },
+    {
+      "dirSort": null,
+      "com_acct_id": null,
+      "dirCode": "d2d81022abb743119900a56f6e1de7fd",
+      "dirId": 497,
+      "dirFullPath": "-1.490.492.497",
+      "dirType": "0",
+      "dirName": "个人电信业务订购和使用信息",
+      "parentDirId": 492
+    },
+    {
+      "dirSort": null,
+      "com_acct_id": null,
+      "dirCode": "b40897d461be43ca9a3d09a74d88b12c",
+      "dirId": 498,
+      "dirFullPath": "-1.490.492.498",
+      "dirType": "0",
+      "dirName": "个人标签信息",
+      "parentDirId": 492
+    },
+    {
+      "dirSort": null,
+      "com_acct_id": null,
+      "dirCode": "04eae9c2c88e4274aaa0641b2f3bff29",
+      "dirId": 499,
+      "dirFullPath": "-1.490.493.499",
+      "dirType": "0",
+      "dirName": "单位基本信息",
+      "parentDirId": 493
+    },
+    {
+      "dirSort": null,
+      "com_acct_id": null,
+      "dirCode": "82cf4d50a2e445fd8ffc8f956ddbed0f",
+      "dirId": 500,
+      "dirFullPath": "-1.490.493.500",
+      "dirType": "0",
+      "dirName": "单位账户和鉴别信息",
+      "parentDirId": 493
+    },
+    {
+      "dirSort": null,
+      "com_acct_id": null,
+      "dirCode": "a9632c9623ed4037a57d5951e60b4959",
+      "dirId": 501,
+      "dirFullPath": "-1.490.493.501",
+      "dirType": "0",
+      "dirName": "单位资讯信息",
+      "parentDirId": 493
+    },
+    {
+      "dirSort": null,
+      "com_acct_id": null,
+      "dirCode": "4bcfd06e98d24c97a6ff281ec4978e91",
+      "dirId": 502,
+      "dirFullPath": "-1.490.493.502",
+      "dirType": "0",
+      "dirName": "单位标签信息",
+      "parentDirId": 493
+    },
+    {
+      "dirSort": null,
+      "com_acct_id": null,
+      "dirCode": "bfe12ed5ac584dd6a78193f7375f9046",
+      "dirId": 503,
+      "dirFullPath": "-1.491.503",
+      "dirType": "0",
+      "dirName": "网络与系统的建设与运行维护",
+      "parentDirId": 491
+    },
+    {
+      "dirSort": null,
+      "com_acct_id": null,
+      "dirCode": "e2a994d182ef4fa3b3a7616ce31c1fc5",
+      "dirId": 504,
+      "dirFullPath": "-1.491.504",
+      "dirType": "0",
+      "dirName": "业务和营销类数据",
+      "parentDirId": 491
+    },
+    {
+      "dirSort": null,
+      "com_acct_id": null,
+      "dirCode": "abff3dcd64074084ad9bc196569cc3bb",
+      "dirId": 505,
+      "dirFullPath": "-1.491.505",
+      "dirType": "0",
+      "dirName": "企业管理类数据",
+      "parentDirId": 491
+    },
+    {
+      "dirSort": null,
+      "com_acct_id": null,
+      "dirCode": "87b3f22c53474b25a44b7578eb0a9757",
+      "dirId": 506,
+      "dirFullPath": "-1.491.506",
+      "dirType": "0",
+      "dirName": "其他数据",
+      "parentDirId": 491
+    },
+    {
+      "dirSort": null,
+      "com_acct_id": null,
+      "dirCode": "a0da9a69ff44449d9d4245e13664af10",
+      "dirId": 508,
+      "dirFullPath": "-1.491.503.508",
+      "dirType": "0",
+      "dirName": "规划建设类数据",
+      "parentDirId": 503
+    },
+    {
+      "dirSort": null,
+      "com_acct_id": null,
+      "dirCode": "e5fa682dc9a24b82953d2d47da6c2c80",
+      "dirId": 509,
+      "dirFullPath": "-1.491.503.509",
+      "dirType": "0",
+      "dirName": "网络与系统资源类数据",
+      "parentDirId": 503
+    },
+    {
+      "dirSort": null,
+      "com_acct_id": null,
+      "dirCode": "63f5dac8a4cd454aa465e48bfca49690",
+      "dirId": 510,
+      "dirFullPath": "-1.491.503.510",
+      "dirType": "0",
+      "dirName": "网络与系统运维类数据",
+      "parentDirId": 503
+    },
+    {
+      "dirSort": null,
+      "com_acct_id": null,
+      "dirCode": "f6225881d9864d6c99e2671cae35ab1f",
+      "dirId": 511,
+      "dirFullPath": "-1.491.503.511",
+      "dirType": "0",
+      "dirName": "云网安全管理类数据",
+      "parentDirId": 503
+    },
+    {
+      "dirSort": null,
+      "com_acct_id": null,
+      "dirCode": "74b99b75725547a29fc4965ea0fb286f",
+      "dirId": 512,
+      "dirFullPath": "-1.491.504.512",
+      "dirType": "0",
+      "dirName": "营销和渠道类数据",
+      "parentDirId": 504
+    },
+    {
+      "dirSort": null,
+      "com_acct_id": null,
+      "dirCode": "e1b9afa35fd14c79a7cce739fffbce8f",
+      "dirId": 513,
+      "dirFullPath": "-1.491.504.513",
+      "dirType": "0",
+      "dirName": "业务运营服务数据",
+      "parentDirId": 504
+    },
+    {
+      "dirSort": null,
+      "com_acct_id": null,
+      "dirCode": "000f2d5d4cac4ef8aae2caea33fe6467",
+      "dirId": 514,
+      "dirFullPath": "-1.491.504.514",
+      "dirType": "0",
+      "dirName": "公开业务运营服务数据",
+      "parentDirId": 504
+    },
+    {
+      "dirSort": null,
+      "com_acct_id": null,
+      "dirCode": "e986b1b376ac4d86b032902fd5ea7784",
+      "dirId": 515,
+      "dirFullPath": "-1.491.505.515",
+      "dirType": "0",
+      "dirName": "发展战略与重大决策",
+      "parentDirId": 505
+    },
+    {
+      "dirSort": null,
+      "com_acct_id": null,
+      "dirCode": "2fcd8264cf834af69ffddf3a86be6297",
+      "dirId": 516,
+      "dirFullPath": "-1.491.505.516",
+      "dirType": "0",
+      "dirName": "业务发展",
+      "parentDirId": 505
+    },
+    {
+      "dirSort": null,
+      "com_acct_id": null,
+      "dirCode": "76f0a77c11fb41ef95a668c00efa9492",
+      "dirId": 517,
+      "dirFullPath": "-1.491.505.517",
+      "dirType": "0",
+      "dirName": "技术研发类",
+      "parentDirId": 505
+    },
+    {
+      "dirSort": null,
+      "com_acct_id": null,
+      "dirCode": "0b17317a651946ecb973b6155a898725",
+      "dirId": 518,
+      "dirFullPath": "-1.491.505.518",
+      "dirType": "0",
+      "dirName": "运行管理类",
+      "parentDirId": 505
+    },
+    {
+      "dirSort": null,
+      "com_acct_id": null,
+      "dirCode": "6f0f2c93f58044ff9d5eb362342dee70",
+      "dirId": 519,
+      "dirFullPath": "-1.491.505.519",
+      "dirType": "0",
+      "dirName": "生产经营类",
+      "parentDirId": 505
+    },
+    {
+      "dirSort": null,
+      "com_acct_id": null,
+      "dirCode": "6753fbda4fed48959a755982acf9698e",
+      "dirId": 520,
+      "dirFullPath": "-1.491.505.520",
+      "dirType": "0",
+      "dirName": "综合管理类",
+      "parentDirId": 505
+    },
+    {
+      "dirSort": null,
+      "com_acct_id": null,
+      "dirCode": "ee8266f2e1c040f2a2ef0fa7162ed3ba",
+      "dirId": 521,
+      "dirFullPath": "-1.491.506.521",
+      "dirType": "0",
+      "dirName": "合作方提供数据",
+      "parentDirId": 506
+    },
+    {
+      "dirSort": null,
+      "com_acct_id": null,
+      "dirCode": "9c404e5cdfd3475f831fb201cdf6dc5c",
+      "dirId": 522,
+      "dirFullPath": "-1.490.492.494.522",
+      "dirType": "0",
+      "dirName": "个人身份信息",
+      "parentDirId": 494
+    },
+    {
+      "dirSort": null,
+      "com_acct_id": null,
+      "dirCode": "89cd7f14c9054c139f63e8e7b690139b",
+      "dirId": 523,
+      "dirFullPath": "-1.490.492.494.523",
+      "dirType": "0",
+      "dirName": "个人通信联系信息",
+      "parentDirId": 494
+    },
+    {
+      "dirSort": null,
+      "com_acct_id": null,
+      "dirCode": "93ac30fc7961444ba4c2c7e5f03b8c61",
+      "dirId": 524,
+      "dirFullPath": "-1.490.492.494.524",
+      "dirType": "0",
+      "dirName": "个人财产信息",
+      "parentDirId": 494
+    },
+    {
+      "dirSort": null,
+      "com_acct_id": null,
+      "dirCode": "1ac13b2b144c425fae67b66961f64e75",
+      "dirId": 525,
+      "dirFullPath": "-1.490.492.494.525",
+      "dirType": "0",
+      "dirName": "个人教育职业信息",
+      "parentDirId": 494
+    },
+    {
+      "dirSort": null,
+      "com_acct_id": null,
+      "dirCode": "3f96911c5b3d45ecb0fae9040f7252ff",
+      "dirId": 526,
+      "dirFullPath": "-1.490.492.494.526",
+      "dirType": "0",
+      "dirName": "个人隐私资料",
+      "parentDirId": 494
+    },
+    {
+      "dirSort": null,
+      "com_acct_id": null,
+      "dirCode": "ffbe9af63eee4bd6be706b927c0ec66f",
+      "dirId": 528,
+      "dirFullPath": "-1.490.492.494.522.528",
+      "dirType": "1",
+      "dirName": "个人身份基本信息",
+      "parentDirId": 522
+    },
+    {
+      "dirSort": null,
+      "com_acct_id": null,
+      "dirCode": "9e466769d797430a9abcb78e9fa09d66",
+      "dirId": 529,
+      "dirFullPath": "-1.490.492.494.522.529",
+      "dirType": "1",
+      "dirName": "个人身份号码信息 ",
+      "parentDirId": 522
+    },
+    {
+      "dirSort": null,
+      "com_acct_id": null,
+      "dirCode": "d7e69112a45548ea896c7a60813f55a6",
+      "dirId": 530,
+      "dirFullPath": "-1.490.492.494.522.530",
+      "dirType": "1",
+      "dirName": "个人证件影印件",
+      "parentDirId": 522
+    },
+    {
+      "dirSort": null,
+      "com_acct_id": null,
+      "dirCode": "8915ecd2b48e49d3b46c548883e6ae9a",
+      "dirId": 531,
+      "dirFullPath": "-1.490.492.494.523.531",
+      "dirType": "1",
+      "dirName": "个人联系信息",
+      "parentDirId": 523
+    },
+    {
+      "dirSort": null,
+      "com_acct_id": null,
+      "dirCode": "4a298b9956344a00bdc3821aa2c8f3d4",
+      "dirId": 532,
+      "dirFullPath": "-1.490.492.494.523.532",
+      "dirType": "1",
+      "dirName": "联系人信息",
+      "parentDirId": 523
+    },
+    {
+      "dirSort": null,
+      "com_acct_id": null,
+      "dirCode": "acaa9350015d496fad3ed61edc15b864",
+      "dirId": 533,
+      "dirFullPath": "-1.490.492.494.524.533",
+      "dirType": "1",
+      "dirName": "个人银行类信息",
+      "parentDirId": 524
+    },
+    {
+      "dirSort": null,
+      "com_acct_id": null,
+      "dirCode": "8026c7ecf5a149debe29a77d93c3f130",
+      "dirId": 534,
+      "dirFullPath": "-1.490.492.494.524.534",
+      "dirType": "1",
+      "dirName": "个人电信财产信息",
+      "parentDirId": 524
+    },
+    {
+      "dirSort": null,
+      "com_acct_id": null,
+      "dirCode": "071ab61c2cab4ff0b32c0a33867b865b",
+      "dirId": 535,
+      "dirFullPath": "-1.490.492.494.525.535",
+      "dirType": "1",
+      "dirName": "个人教育信息",
+      "parentDirId": 525
+    },
+    {
+      "dirSort": null,
+      "com_acct_id": null,
+      "dirCode": "5115e221486d41478e39350e9940adc2",
+      "dirId": 536,
+      "dirFullPath": "-1.490.492.494.525.536",
+      "dirType": "1",
+      "dirName": "个人职业信息",
+      "parentDirId": 525
+    },
+    {
+      "dirSort": null,
+      "com_acct_id": null,
+      "dirCode": "9474733bf0f946079a00807d0ba21058",
+      "dirId": 537,
+      "dirFullPath": "-1.490.492.494.525.537",
+      "dirType": "1",
+      "dirName": "个人资质证书信息",
+      "parentDirId": 525
+    },
+    {
+      "dirSort": null,
+      "com_acct_id": null,
+      "dirCode": "b6c6bb2405594baaab433029fef933ca",
+      "dirId": 538,
+      "dirFullPath": "-1.490.492.494.525.538",
+      "dirType": "1",
+      "dirName": "个人党政信息",
+      "parentDirId": 525
+    },
+    {
+      "dirSort": null,
+      "com_acct_id": null,
+      "dirCode": "e257bc38cdce43ccbab01b518ef78e88",
+      "dirId": 539,
+      "dirFullPath": "-1.490.492.494.526.539",
+      "dirType": "1",
+      "dirName": "个人隐私资料",
+      "parentDirId": 526
+    },
+    {
+      "dirSort": null,
+      "com_acct_id": null,
+      "dirCode": "1d592e0db1504868936d5014cf9f2f92",
+      "dirId": 540,
+      "dirFullPath": "-1.490.492.495.540",
+      "dirType": "0",
+      "dirName": "个人账户信息",
+      "parentDirId": 495
+    },
+    {
+      "dirSort": null,
+      "com_acct_id": null,
+      "dirCode": "5f7bf7be86e14ddca6725f6d84e50ec3",
+      "dirId": 541,
+      "dirFullPath": "-1.490.492.495.541",
+      "dirType": "0",
+      "dirName": "个人网络身份鉴别信息",
+      "parentDirId": 495
+    },
+    {
+      "dirSort": null,
+      "com_acct_id": null,
+      "dirCode": "b9492054f4bb4247a775515b58089892",
+      "dirId": 542,
+      "dirFullPath": "-1.490.492.496.542",
+      "dirType": "0",
+      "dirName": "个人通信信息",
+      "parentDirId": 496
+    },
+    {
+      "dirSort": null,
+      "com_acct_id": null,
+      "dirCode": "26dda965141441d1b759e867cf3fb645",
+      "dirId": 543,
+      "dirFullPath": "-1.490.492.496.543",
+      "dirType": "0",
+      "dirName": "个人上网信息",
+      "parentDirId": 496
+    },
+    {
+      "dirSort": null,
+      "com_acct_id": null,
+      "dirCode": "9bc9ecc2c273459eb4ce3e960dd5ffe7",
+      "dirId": 544,
+      "dirFullPath": "-1.490.492.496.544",
+      "dirType": "0",
+      "dirName": "个人地理位置信息",
+      "parentDirId": 496
+    },
+    {
+      "dirSort": null,
+      "com_acct_id": null,
+      "dirCode": "53eebe26ae68480da4b24bcd6e1d90cc",
+      "dirId": 545,
+      "dirFullPath": "-1.490.492.496.545",
+      "dirType": "0",
+      "dirName": "个人常用设备信息",
+      "parentDirId": 496
+    },
+    {
+      "dirSort": null,
+      "com_acct_id": null,
+      "dirCode": "3b0f049305d143c089fbcc370b872c76",
+      "dirId": 546,
+      "dirFullPath": "-1.490.492.496.546",
+      "dirType": "0",
+      "dirName": "个人违规记录",
+      "parentDirId": 496
+    },
+    {
+      "dirSort": null,
+      "com_acct_id": null,
+      "dirCode": "e4836cfacab141549540b0e31e9d357f",
+      "dirId": 547,
+      "dirFullPath": "-1.490.492.497.547",
+      "dirType": "0",
+      "dirName": "电信业务订购关系",
+      "parentDirId": 497
+    },
+    {
+      "dirSort": null,
+      "com_acct_id": null,
+      "dirCode": "74dc7abe17b34eb285f6e63458b03063",
+      "dirId": 548,
+      "dirFullPath": "-1.490.492.497.548",
+      "dirType": "0",
+      "dirName": "电信业务使用信息",
+      "parentDirId": 497
+    },
+    {
+      "dirSort": null,
+      "com_acct_id": null,
+      "dirCode": "370b7cbc2a6c4b0998a36b88f90ee0f3",
+      "dirId": 549,
+      "dirFullPath": "-1.490.492.498.549",
+      "dirType": "0",
+      "dirName": "个人描述类标签",
+      "parentDirId": 498
+    },
+    {
+      "dirSort": null,
+      "com_acct_id": null,
+      "dirCode": "1739fb1e5c6c46d1aa688401d5ecc5c3",
+      "dirId": 550,
+      "dirFullPath": "-1.490.492.498.550",
+      "dirType": "0",
+      "dirName": "个人与电信业务关联类标签",
+      "parentDirId": 498
+    },
+    {
+      "dirSort": null,
+      "com_acct_id": null,
+      "dirCode": "8e079d0caf5b4ee0bc0f571772752450",
+      "dirId": 551,
+      "dirFullPath": "-1.490.492.498.551",
+      "dirType": "0",
+      "dirName": "用户画像信息",
+      "parentDirId": 498
+    },
+    {
+      "dirSort": null,
+      "com_acct_id": null,
+      "dirCode": "09ac611463e0411c846b114ac5c7d50c",
+      "dirId": 552,
+      "dirFullPath": "-1.490.492.495.540.552",
+      "dirType": "1",
+      "dirName": "个人账户编码和标识",
+      "parentDirId": 540
+    },
+    {
+      "dirSort": null,
+      "com_acct_id": null,
+      "dirCode": "ba99e98dcfe44f3b84e6b5f3f172ddf6",
+      "dirId": 553,
+      "dirFullPath": "-1.490.492.495.541.553",
+      "dirType": "1",
+      "dirName": "用户密码及关联信息",
+      "parentDirId": 541
+    },
+    {
+      "dirSort": null,
+      "com_acct_id": null,
+      "dirCode": "e5fca667dc454727a46cb05336d5cf88",
+      "dirId": 554,
+      "dirFullPath": "-1.490.492.495.541.554",
+      "dirType": "1",
+      "dirName": "个人生物识别信息",
+      "parentDirId": 541
+    },
+    {
+      "dirSort": null,
+      "com_acct_id": null,
+      "dirCode": "7f99b51b436f49d096f8abbb9d2f0571",
+      "dirId": 555,
+      "dirFullPath": "-1.490.492.495.541.555",
+      "dirType": "1",
+      "dirName": "鉴别辅助信息",
+      "parentDirId": 541
+    },
+    {
+      "dirSort": null,
+      "com_acct_id": null,
+      "dirCode": "6a63aad6334c4a87b2dbeafb5a0d63f5",
+      "dirId": 556,
+      "dirFullPath": "-1.490.492.496.542.556",
+      "dirType": "1",
+      "dirName": "通信内容数据",
+      "parentDirId": 542
+    },
+    {
+      "dirSort": null,
+      "com_acct_id": null,
+      "dirCode": "184cbb822c7f4090872cf90f04ec2242",
+      "dirId": 557,
+      "dirFullPath": "-1.490.492.496.542.557",
+      "dirType": "1",
+      "dirName": "通信记录和日志",
+      "parentDirId": 542
+    },
+    {
+      "dirSort": null,
+      "com_acct_id": null,
+      "dirCode": "3e86fcd0553d4956bdc0ccdd2aaba038",
+      "dirId": 558,
+      "dirFullPath": "-1.490.492.496.542.558",
+      "dirType": "1",
+      "dirName": "话单数据",
+      "parentDirId": 542
+    },
+    {
+      "dirSort": null,
+      "com_acct_id": null,
+      "dirCode": "af79189aa05c4cb580415a92066c3f98",
+      "dirId": 559,
+      "dirFullPath": "-1.490.492.496.543.559",
+      "dirType": "1",
+      "dirName": "上网内容数据",
+      "parentDirId": 543
+    },
+    {
+      "dirSort": null,
+      "com_acct_id": null,
+      "dirCode": "7780e2f9fea84562a984a85dd20fa234",
+      "dirId": 560,
+      "dirFullPath": "-1.490.492.496.543.560",
+      "dirType": "1",
+      "dirName": "上网记录和日志",
+      "parentDirId": 543
+    },
+    {
+      "dirSort": null,
+      "com_acct_id": null,
+      "dirCode": "8184976793214b9f9cba308affd228e6",
+      "dirId": 561,
+      "dirFullPath": "-1.490.492.496.544.561",
+      "dirType": "1",
+      "dirName": "粗略地理位置",
+      "parentDirId": 544
+    },
+    {
+      "dirSort": null,
+      "com_acct_id": null,
+      "dirCode": "d8438d281717428a85c266141e913534",
+      "dirId": 562,
+      "dirFullPath": "-1.490.492.496.544.562",
+      "dirType": "1",
+      "dirName": "精确地理位置信息",
+      "parentDirId": 544
+    },
+    {
+      "dirSort": null,
+      "com_acct_id": null,
+      "dirCode": "c13b9ef1262d456ab21636a5202630af",
+      "dirId": 563,
+      "dirFullPath": "-1.490.492.496.545.563",
+      "dirType": "1",
+      "dirName": "终端设备标识",
+      "parentDirId": 545
+    },
+    {
+      "dirSort": null,
+      "com_acct_id": null,
+      "dirCode": "e4e12d61e9754e9e9d8880ad63776078",
+      "dirId": 564,
+      "dirFullPath": "-1.490.492.496.545.564",
+      "dirType": "1",
+      "dirName": "终端设备资料",
+      "parentDirId": 545
+    },
+    {
+      "dirSort": null,
+      "com_acct_id": null,
+      "dirCode": "207e579172e94261b260013c2f53cc62",
+      "dirId": 565,
+      "dirFullPath": "-1.490.492.496.546.565",
+      "dirType": "1",
+      "dirName": "违规记录数据",
+      "parentDirId": 546
+    },
+    {
+      "dirSort": null,
+      "com_acct_id": null,
+      "dirCode": "8b969559557944f29c9d463bda116245",
+      "dirId": 936,
+      "dirFullPath": "-1.490.492.497.547.936",
+      "dirType": "1",
+      "dirName": "基本业务订购关系",
+      "parentDirId": 547
+    },
+    {
+      "dirSort": null,
+      "com_acct_id": null,
+      "dirCode": "5db4ac57b65442fa8563fa68734e900c",
+      "dirId": 937,
+      "dirFullPath": "-1.490.492.497.547.937",
+      "dirType": "1",
+      "dirName": "增值业务订购关系",
+      "parentDirId": 547
+    },
+    {
+      "dirSort": null,
+      "com_acct_id": null,
+      "dirCode": "ad4dfe6b1e3c43bcb3593cdcbaf110d2",
+      "dirId": 938,
+      "dirFullPath": "-1.490.492.497.548.938",
+      "dirType": "1",
+      "dirName": "业务使用信息",
+      "parentDirId": 548
+    },
+    {
+      "dirSort": null,
+      "com_acct_id": null,
+      "dirCode": "a24fbc4be6df4a91b87e76258e3abe9d",
+      "dirId": 939,
+      "dirFullPath": "-1.490.492.497.548.939",
+      "dirType": "1",
+      "dirName": "费用账单信息",
+      "parentDirId": 548
+    },
+    {
+      "itemId": 92,
+      "levelCode": "level3",
+      "itemName": "姓名",
+      "itemCode": "f5a0a2e7955b406fb40553bf858bdef4",
+      "levelId": 176,
+      "com_acct_id": null,
+      "dirCode": "ffbe9af63eee4bd6be706b927c0ec66f",
+      "dirId": 528,
+      "levelName": "较敏感数据"
+    },
+    {
+      "itemId": 93,
+      "levelCode": "level3",
+      "itemName": "国籍",
+      "itemCode": "21c33169a21443bc9603c8140b853ebc",
+      "levelId": 176,
+      "com_acct_id": null,
+      "dirCode": "ffbe9af63eee4bd6be706b927c0ec66f",
+      "dirId": 528,
+      "levelName": "较敏感数据"
+    },
+    {
+      "itemId": 94,
+      "levelCode": "level3",
+      "itemName": "民族",
+      "itemCode": "6d325a2849d34fc4a27db4b2ba594b5f",
+      "levelId": 176,
+      "com_acct_id": null,
+      "dirCode": "ffbe9af63eee4bd6be706b927c0ec66f",
+      "dirId": 528,
+      "levelName": "较敏感数据"
+    },
+    {
+      "itemId": 95,
+      "levelCode": "level3",
+      "itemName": "证件类型",
+      "itemCode": "9fd2c41dadf246c383d0b74e929953c0",
+      "levelId": 176,
+      "com_acct_id": null,
+      "dirCode": "ffbe9af63eee4bd6be706b927c0ec66f",
+      "dirId": 528,
+      "levelName": "较敏感数据"
+    },
+    {
+      "itemId": 115,
+      "levelCode": "level3",
+      "itemName": "婚姻状况",
+      "itemCode": "c57cd5de7ec84a62a5c4be427eba0623",
+      "levelId": 176,
+      "com_acct_id": null,
+      "dirCode": "ffbe9af63eee4bd6be706b927c0ec66f",
+      "dirId": 528,
+      "levelName": "较敏感数据"
+    },
+    {
+      "itemId": 99,
+      "levelCode": "level4",
+      "itemName": "身份证",
+      "itemCode": "498ebb2256c94a90a59a453e97d54070",
+      "levelId": 175,
+      "com_acct_id": null,
+      "dirCode": "9e466769d797430a9abcb78e9fa09d66",
+      "dirId": 529,
+      "levelName": "敏感数据"
+    },
+    {
+      "itemId": 100,
+      "levelCode": "level4",
+      "itemName": "港澳通行证",
+      "itemCode": "4c735b478d8e400695243802fb4c1d2d",
+      "levelId": 175,
+      "com_acct_id": null,
+      "dirCode": "9e466769d797430a9abcb78e9fa09d66",
+      "dirId": 529,
+      "levelName": "敏感数据"
+    },
+    {
+      "itemId": 101,
+      "levelCode": "level4",
+      "itemName": "护照号",
+      "itemCode": "e3f22ef7f9c543b09fb1154ee798b851",
+      "levelId": 175,
+      "com_acct_id": null,
+      "dirCode": "9e466769d797430a9abcb78e9fa09d66",
+      "dirId": 529,
+      "levelName": "敏感数据"
+    },
+    {
+      "itemId": 113,
+      "levelCode": "level4",
+      "itemName": "驾照",
+      "itemCode": "b7cde859b3294e9490b8daa7de53e36c",
+      "levelId": 175,
+      "com_acct_id": null,
+      "dirCode": "9e466769d797430a9abcb78e9fa09d66",
+      "dirId": 529,
+      "levelName": "敏感数据"
+    },
+    {
+      "itemId": 102,
+      "levelCode": "level3",
+      "itemName": "邮箱",
+      "itemCode": "fd0919d9105645af98ee4fa514f48d88",
+      "levelId": 176,
+      "com_acct_id": null,
+      "dirCode": "8915ecd2b48e49d3b46c548883e6ae9a",
+      "dirId": 531,
+      "levelName": "较敏感数据"
+    },
+    {
+      "itemId": 103,
+      "levelCode": "level3",
+      "itemName": "手机号",
+      "itemCode": "1bb0aca1938d4592aa8738e517c0704b",
+      "levelId": 176,
+      "com_acct_id": null,
+      "dirCode": "8915ecd2b48e49d3b46c548883e6ae9a",
+      "dirId": 531,
+      "levelName": "较敏感数据"
+    },
+    {
+      "itemId": 104,
+      "levelCode": "level3",
+      "itemName": "固定电话",
+      "itemCode": "704d94e0802544c8ad1097d0fb1c63bb",
+      "levelId": 176,
+      "com_acct_id": null,
+      "dirCode": "8915ecd2b48e49d3b46c548883e6ae9a",
+      "dirId": 531,
+      "levelName": "较敏感数据"
+    },
+    {
+      "itemId": 110,
+      "levelCode": "level3",
+      "itemName": "银行卡",
+      "itemCode": "4b4be7dc732e4293913873a43632f51b",
+      "levelId": 176,
+      "com_acct_id": null,
+      "dirCode": "acaa9350015d496fad3ed61edc15b864",
+      "dirId": 533,
+      "levelName": "较敏感数据"
+    },
+    {
+      "itemId": 105,
+      "levelCode": "level2",
+      "itemName": "学校名称",
+      "itemCode": "ee48790fbbec44d891080a038a63f04f",
+      "levelId": 177,
+      "com_acct_id": null,
+      "dirCode": "071ab61c2cab4ff0b32c0a33867b865b",
+      "dirId": 535,
+      "levelName": "低敏感数据"
+    },
+    {
+      "itemId": 106,
+      "levelCode": "level2",
+      "itemName": "学历",
+      "itemCode": "7923f76698b842b5b221feeef245a89e",
+      "levelId": 177,
+      "com_acct_id": null,
+      "dirCode": "071ab61c2cab4ff0b32c0a33867b865b",
+      "dirId": 535,
+      "levelName": "低敏感数据"
+    },
+    {
+      "itemId": 107,
+      "levelCode": "level2",
+      "itemName": "工作单位",
+      "itemCode": "5dc761282c1544f19aec25c7778a9545",
+      "levelId": 177,
+      "com_acct_id": null,
+      "dirCode": "5115e221486d41478e39350e9940adc2",
+      "dirId": 536,
+      "levelName": "低敏感数据"
+    },
+    {
+      "itemId": 108,
+      "levelCode": "level2",
+      "itemName": "职位",
+      "itemCode": "d27e5b08126948cf8d1054a2b030e4dd",
+      "levelId": 177,
+      "com_acct_id": null,
+      "dirCode": "5115e221486d41478e39350e9940adc2",
+      "dirId": 536,
+      "levelName": "低敏感数据"
+    },
+    {
+      "itemId": 109,
+      "levelCode": "level4",
+      "itemName": "地址",
+      "itemCode": "0566f4a0590a44efa7649fef555d48f0",
+      "levelId": 175,
+      "com_acct_id": null,
+      "dirCode": "d8438d281717428a85c266141e913534",
+      "dirId": 562,
+      "levelName": "敏感数据"
+    },
+    {
+      "itemId": 111,
+      "levelCode": "level3",
+      "itemName": "IP地址",
+      "itemCode": "6922e78ab12c41da97898b124b319358",
+      "levelId": 176,
+      "com_acct_id": null,
+      "dirCode": "c13b9ef1262d456ab21636a5202630af",
+      "dirId": 563,
+      "levelName": "较敏感数据"
+    },
+    {
+      "itemId": 112,
+      "levelCode": "level3",
+      "itemName": "MAC地址",
+      "itemCode": "dbe0e26621724963a9b6d4d17369a05c",
+      "levelId": 176,
+      "com_acct_id": null,
+      "dirCode": "c13b9ef1262d456ab21636a5202630af",
+      "dirId": 563,
+      "levelName": "较敏感数据"
+    }
+  ]
+}

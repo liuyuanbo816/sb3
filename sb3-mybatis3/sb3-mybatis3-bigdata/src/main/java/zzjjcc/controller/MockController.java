@@ -2,6 +2,7 @@ package zzjjcc.controller;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -10,14 +11,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Map;
 
-/**
- * http://localhost:9999/sdk/upload/entireUpload
- */
+@Slf4j
 @RestController
 public class MockController {
 
@@ -92,7 +92,15 @@ public class MockController {
                 file.delete();
             }
         }
+    }
 
+    public void readFileContent(String filePath) {
+        Path path = Paths.get(filePath);
+        try {
+            Files.readAllLines(path, StandardCharsets.UTF_8);
+        } catch (IOException e) {
+            log.error("文件读取发生错误: {}", path);
+        }
     }
 
 

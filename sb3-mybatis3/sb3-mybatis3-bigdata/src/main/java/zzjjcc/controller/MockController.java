@@ -1,23 +1,25 @@
 package zzjjcc.controller;
 
+import jakarta.servlet.http.HttpServletRequest;
 import lombok.Getter;
 import lombok.Setter;
-import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.support.StandardMultipartHttpServletRequest;
 
 import java.io.File;
 import java.io.IOException;
-import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
+import java.util.List;
 import java.util.Map;
 
-@Slf4j
 @RestController
 public class MockController {
 
@@ -86,7 +88,7 @@ public class MockController {
             LOG.info("{}", file.length());
             file.deleteOnExit();
         } catch (IOException e) {
-            LOG.error("{}", e);
+            LOG.error("发生异常", e);
         } finally {
             if (file != null) {
                 file.delete();
@@ -94,13 +96,33 @@ public class MockController {
         }
     }
 
-    public void readFileContent(String filePath) {
-        Path path = Paths.get(filePath);
+    @PostMapping("/mock/upload")
+    public String readFileContent(HttpServletRequest request) {
+        Path path = null;
         try {
-            Files.readAllLines(path, StandardCharsets.UTF_8);
+            if (request instanceof StandardMultipartHttpServletRequest multipartHttpServletRequest) {
+                List<MultipartFile> files = multipartHttpServletRequest.getFiles("file");
+                if (!files.isEmpty()) {
+                    MultipartFile firstFile = files.getFirst();
+                    String fileName = firstFile.getOriginalFilename();
+
+                    path = Files.write(
+                            Paths.get("D:\\hjWork\\tmp\\" + fileName),
+                            firstFile.getBytes(),
+                            StandardOpenOption.CREATE_NEW);
+                }
+            }
         } catch (IOException e) {
-            log.error("文件读取发生错误: {}", path);
+            throw new RuntimeException(e);
+        } finally {
+            if (path != null) {
+                boolean bool = path.toFile().delete();
+                if (bool) {
+                    LOG.info("文件清理成功: {}", path.toAbsolutePath());
+                }
+            }
         }
+        return "OK";
     }
 
 

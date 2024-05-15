@@ -1,5 +1,7 @@
 package zzjjcc.controller;
 
+import jakarta.servlet.http.HttpServletResponse;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,6 +13,7 @@ import zzjjcc.service.EmployeeService;
 import java.util.List;
 
 @Controller
+@Slf4j
 public class EmployeeController {
 
     EmployeeService employeeServiceImpl;
@@ -35,6 +38,19 @@ public class EmployeeController {
     @ResponseBody
     public List<Employee> getEmployees() {
         return employeeServiceImpl.getEmployees();
+    }
+
+    @GetMapping("/excel/download")
+    public void download(HttpServletResponse response) {
+        try {
+            response.reset();
+            response.setContentType("application/vnd.ms-excel");
+            response.setHeader("Content-disposition",
+                    "attachment;filename=employees_excel_" + System.currentTimeMillis() + ".xlsx");
+            employeeServiceImpl.downloadExcel(response.getOutputStream());
+        } catch (Exception e) {
+            log.error("下载文件出错", e);
+        }
     }
 
 }

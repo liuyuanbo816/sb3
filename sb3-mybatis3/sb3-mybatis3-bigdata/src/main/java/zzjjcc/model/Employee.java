@@ -1,105 +1,36 @@
 package zzjjcc.model;
 
+import com.alibaba.excel.annotation.ExcelProperty;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+
 import java.time.LocalDate;
 
+@Getter
+@Setter
+@Builder
 public class Employee {
+    @ExcelProperty("employeeId")
     private Integer employeeId;
+    @ExcelProperty("firstName")
     private String firstName;
+    @ExcelProperty("lastName")
     private String lastName;
+    @ExcelProperty("email")
     private String email;
+    @ExcelProperty("phoneNumber")
     private String phoneNumber;
+    @ExcelProperty("hireDate")
     private LocalDate hireDate;
+    @ExcelProperty("jobId")
     private String jobId;
+    @ExcelProperty("salary")
     private Double salary;
+    @ExcelProperty("commissionPct")
     private Double commissionPct;
+    @ExcelProperty("managerId")
     private Integer managerId;
+    @ExcelProperty("departmentId")
     private Integer departmentId;
-
-    public Integer getEmployeeId() {
-        return employeeId;
-    }
-
-    public void setEmployeeId(Integer employeeId) {
-        this.employeeId = employeeId;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
-
-    public LocalDate getHireDate() {
-        return hireDate;
-    }
-
-    public void setHireDate(LocalDate hireDate) {
-        this.hireDate = hireDate;
-    }
-
-    public String getJobId() {
-        return jobId;
-    }
-
-    public void setJobId(String jobId) {
-        this.jobId = jobId;
-    }
-
-    public Double getSalary() {
-        return salary;
-    }
-
-    public void setSalary(Double salary) {
-        this.salary = salary;
-    }
-
-    public Double getCommissionPct() {
-        return commissionPct;
-    }
-
-    public void setCommissionPct(Double commissionPct) {
-        this.commissionPct = commissionPct;
-    }
-
-    public Integer getManagerId() {
-        return managerId;
-    }
-
-    public void setManagerId(Integer managerId) {
-        this.managerId = managerId;
-    }
-
-    public Integer getDepartmentId() {
-        return departmentId;
-    }
-
-    public void setDepartmentId(Integer departmentId) {
-        this.departmentId = departmentId;
-    }
 }

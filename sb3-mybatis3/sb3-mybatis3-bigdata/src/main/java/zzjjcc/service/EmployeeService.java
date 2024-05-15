@@ -1,5 +1,6 @@
 package zzjjcc.service;
 
+import jakarta.servlet.ServletOutputStream;
 import zzjjcc.model.Employee;
 
 import java.util.List;
@@ -10,4 +11,6 @@ public interface EmployeeService {
     void updateEmployee(int id);
     void deleteEmployee(int id);
     List<Employee> getEmployees();
+
+    void downloadExcel(ServletOutputStream outputStream);
 }

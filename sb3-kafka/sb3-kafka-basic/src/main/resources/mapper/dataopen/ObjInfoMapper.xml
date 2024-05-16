@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kafka3.mapper.dataopen.ObjInfoMapper">
+    <resultMap id="baseResultMap" type="kafka3.model.ObjInfo">
+        <id column="job_id" property="objectId" jdbcType="INTEGER"/>
+        <result column="job_title" property="parentId" jdbcType="VARCHAR"/>
+        <result column="min_salary" property="grpId" jdbcType="INTEGER"/>
+        <result column="max_salary" property="objectCode" jdbcType="INTEGER"/>
+        <result column="max_salary" property="objectName" jdbcType="INTEGER"/>
+        <result column="max_salary" property="primaryKey" jdbcType="INTEGER"/>
+        <result column="max_salary" property="metaTableId" jdbcType="INTEGER"/>
+        <result column="max_salary" property="tableCode" jdbcType="INTEGER"/>
+        <result column="max_salary" property="tableType" jdbcType="INTEGER"/>
+        <result column="max_salary" property="statusCd" jdbcType="INTEGER"/>
+        <result column="max_salary" property="layer" jdbcType="INTEGER"/>
+        <result column="max_salary" property="domain" jdbcType="INTEGER"/>
+        <result column="max_salary" property="comments" jdbcType="INTEGER"/>
+        <result column="max_salary" property="createType" jdbcType="INTEGER"/>
+        <result column="max_salary" property="createDate" jdbcType="INTEGER"/>
+        <result column="max_salary" property="operId" jdbcType="INTEGER"/>
+        <result column="max_salary" property="comAcctId" jdbcType="INTEGER"/>
+        <result column="max_salary" property="dirId" jdbcType="INTEGER"/>
+        <result column="max_salary" property="datasourceId" jdbcType="INTEGER"/>
+        <result column="max_salary" property="dataCntType" jdbcType="INTEGER"/>
+        <result column="max_salary" property="objectAlias" jdbcType="INTEGER"/>
+        <result column="max_salary" property="projectId" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <sql id="baseSql">
+        job_id,job_title,min_salary,max_salary
+    </sql>
+
+    <select id="getJobs" resultMap="baseResultMap">
+        select
+        <include refid="baseSql"/>
+        from jobs
+    </select>
+</mapper>

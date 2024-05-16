@@ -1,0 +1,11 @@
+server:
+  port: 9981
+spring:
+  application:
+    name: sb3-kafka-basic
+  config:
+    import: conf/mysql-dev.yml,
+logging:
+  level:
+    kafka3: debug
+    # org.springframework: debug

@@ -1,0 +1,13 @@
+spring:
+  datasource:
+    mysql:
+      dataopen:
+        driverClassName: com.mysql.jdbc.Driver
+        jdbcUrl: jdbc:mysql://172.21.72.155:8003/dataopen?serverTimezone=Asia/Shanghai
+        username: dataopen
+        password: 'dataopen'
+
+mybatis:
+  configuration:
+    mysql:
+      map-underscore-to-camel-case: on

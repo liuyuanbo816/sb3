@@ -1,10 +1,15 @@
 package zzjjcc.controller;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import lombok.Getter;
 import lombok.Setter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -13,6 +18,8 @@ import org.springframework.web.multipart.support.StandardMultipartHttpServletReq
 
 import java.io.File;
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.io.Serializable;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -24,6 +31,13 @@ import java.util.Map;
 public class MockController {
 
     public static final Logger LOG = LoggerFactory.getLogger(MockController.class);
+
+    ObjectMapper objectMapper;
+
+    @Autowired
+    public void setObjectMapper(ObjectMapper objectMapper) {
+        this.objectMapper = objectMapper;
+    }
 
     @Getter
     @Setter
@@ -125,5 +139,23 @@ public class MockController {
         return "OK";
     }
 
+    @GetMapping("/t0516")
+    public void t0516(HttpServletResponse response) {
+        response.setContentType(MediaType.APPLICATION_JSON_VALUE);
+        response.setCharacterEncoding("UTF-8");
+        try (PrintWriter writer = response.getWriter()) {
+            Map<String, ? extends Serializable> map = Map.of(
+                    "storePath", "d:/hj-work/tmp/0515.log",
+                    "objKey", "111",
+                    "realName", "日志log",
+                    "accId", 0,
+                    "curPos", 0
+            );
+            String json = objectMapper.writeValueAsString(map);
+            writer.println(json);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
 }

@@ -12,17 +12,6 @@ public class ImportExcelUtil {
     }
 
     /**
-     * 读取Excel表头首行信息
-     *
-     * @return 首行表头信息
-     */
-    public static String getExcelHeadData(Workbook workbook) {
-        Sheet sheet = workbook.getSheetAt(0);
-        Row row = sheet.getRow(sheet.getFirstRowNum());
-        return getCellValue(row.getCell(0), null);
-    }
-
-    /**
      * 读取Excel数据
      *
      * @param fieldRow     - 字段所在行，
@@ -58,7 +47,7 @@ public class ImportExcelUtil {
      * @param dateFormat 日期的格式
      * @return 返回String
      */
-    private static String getCellValue(Cell cell, String dateFormat) {
+    public static String getCellValue(Cell cell, String dateFormat) {
         String cellValue = null;
         if (cell == null) {
             return null;
@@ -91,6 +80,11 @@ public class ImportExcelUtil {
         }
         return cellValue;
     }
+
+    public static String getCellValue(Cell cell) {
+        return getCellValue(cell, null);
+    }
+
 
     /**
      * 是否是excel

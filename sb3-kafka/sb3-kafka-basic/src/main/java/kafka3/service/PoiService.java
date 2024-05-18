@@ -1,10 +1,11 @@
 package kafka3.service;
 
-import java.io.File;
+import kafka3.vo.ImportResultVo;
+import org.springframework.web.multipart.MultipartFile;
 
 public interface PoiService {
 
-    String importExcel(File file);
+    ImportResultVo importExcel(MultipartFile file);
 
     byte[] exportExcel(String fileName);
 }

@@ -1,8 +1,10 @@
 package kafka3.controller;
 
 import kafka3.common.ImportExcelUtil;
+import kafka3.common.R;
 import kafka3.service.ObjInfoService;
 import kafka3.service.PoiService;
+import kafka3.vo.ImportResultVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -11,8 +13,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
-import java.io.File;
+import java.util.Iterator;
 
 @RestController
 @RequestMapping("/objInfo")
@@ -27,13 +31,15 @@ public class ObjInfoController {
     }
 
     @GetMapping("/importExcel")
-    public String importExcel(String filePath) {
-        File file = new File(filePath);
-        if (ImportExcelUtil.isExcel(file.getName())) {
-            String result = poiServiceImpl.importExcel(file);
-            return "importExcel -- " + result;
+    public R<?> importExcel(MultipartHttpServletRequest request) {
+        Iterator<String> fileNames = request.getFileNames();
+        String uploadFileName = fileNames.next();
+        MultipartFile multipartFile = request.getFile(uploadFileName);
+        if (ImportExcelUtil.isExcel(uploadFileName)) {
+            ImportResultVo vo = poiServiceImpl.importExcel(multipartFile);
+            return R.ok(vo);
         } else {
-            return "importExcel -- 文件类型与模板不符！";
+            return R.fail("请导入Excel格式文件");
         }
     }
 

@@ -1,4 +1,7 @@
 package kafka3.mapper.dataopen;
 
-public interface ObjInfoMapper {
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import kafka3.model.ObjInfo;
+
+public interface ObjInfoMapper extends BaseMapper<ObjInfo> {
 }

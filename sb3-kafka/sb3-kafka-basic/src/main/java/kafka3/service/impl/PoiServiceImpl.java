@@ -1,8 +1,13 @@
 package kafka3.service.impl;
 
+import jakarta.annotation.Resource;
 import kafka3.common.ExportExcelUtil;
 import kafka3.common.ImportExcelUtil;
+import kafka3.mapper.dataopen.ObjInfoMapper;
+import kafka3.model.ObjInfo;
 import kafka3.service.PoiService;
+import kafka3.vo.ImportResultVo;
+import kafka3.vo.ObjInfoImportVO;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Cell;
@@ -13,84 +18,94 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.VerticalAlignment;
 import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.ss.usermodel.WorkbookFactory;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
-import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Optional;
 
 @Service
 @Slf4j
 public class PoiServiceImpl implements PoiService {
+
+    @Resource
+    ObjInfoMapper objInfoMapper;
+
     @Override
-    public String importExcel(File file) {
-        // poi_xlsx.xlsx
-        String fileName = file.getName();
-        List<String[]> dataList = null;
-        String headData = null;
-        Workbook workbook = null;
-        String dateFormat = "yyyy-MM-dd";
-        try {
-            if (ImportExcelUtil.isExcel2007(fileName)) {
-                workbook = new XSSFWorkbook(new FileInputStream(file));
-            } else if (ImportExcelUtil.isExcel2003(fileName)) {
-                workbook = new HSSFWorkbook(new FileInputStream(file));
-            }
+    public ImportResultVo importExcel(MultipartFile file) {
+        List<ObjInfoImportVO> objInfoImportVOS = buildObjInfoVos(file);
+        return this.checkAndImport(objInfoImportVOS);
+    }
+
+    private ImportResultVo checkAndImport(List<ObjInfoImportVO> objInfoImportVOS) {
+        List<ObjInfo> objInfos = new ArrayList<>(objInfoImportVOS.size());
+        ImportResultVo vo = new ImportResultVo();
+
+        for (ObjInfoImportVO objInfoImportVo : objInfoImportVOS) {
+            ObjInfo objInfo = new ObjInfo();
+
+        }
+        return vo;
+    }
+
+    private List<ObjInfoImportVO> buildObjInfoVos(MultipartFile file) {
+        List<ObjInfoImportVO> objInfoImportVOS = new ArrayList<>();
+        try (InputStream in = file.getInputStream();
+             Workbook workbook = WorkbookFactory.create(in)) {
             if (workbook != null) {
-                headData = ImportExcelUtil.getExcelHeadData(workbook);
-                dataList = ImportExcelUtil.getExcelData(workbook, 1, 2, dateFormat);
-            }
-            //拿到数据进行数据库操作
-            System.out.println(headData);
-            List<String[]> list = Optional.ofNullable(dataList).orElse(new ArrayList<>());
-            for (String[] strArr : list) {
-                Map<String, String> entityMap = new LinkedHashMap<>();
-                for (int i = 0; i < strArr.length; i++) {
-                    String cellValue = strArr[i];
-                    switch (i) {
-                        case 0:
-                            entityMap.put("name", cellValue);
-                            break;
-                        case 1:
-                            entityMap.put("sex", cellValue);
-                            break;
-                        case 2:
-                            entityMap.put("age", cellValue);
-                            break;
-                        case 3:
-                            entityMap.put("height", cellValue);
-                            break;
-                        case 4:
-                            entityMap.put("birth", cellValue);
-                            break;
-                        case 5:
-                            entityMap.put("intro", cellValue);
-                            break;
-                        default:
-                            break;
+                Sheet sheet0 = workbook.getSheetAt(0);
+                String[] excelLetters = this.getExcelLetters();
+                int totalRows = sheet0.getLastRowNum();
+
+                for (int i = 1; i <= totalRows; i++) {
+                    Row row = sheet0.getRow(i);
+                    ObjInfoImportVO objInfoImportVO = new ObjInfoImportVO();
+                    objInfoImportVO.setRowNumber(i);
+                    for (int j = 0; j < excelLetters.length; j++) {
+                        Cell cell = row.getCell(j);
+                        switch (excelLetters[j]) {
+                            case "A":
+                                objInfoImportVO.setDimensionsName(ImportExcelUtil.getCellValue(cell));
+                                break;
+                            case "B":
+                                objInfoImportVO.setDimensionsCode(ImportExcelUtil.getCellValue(cell));
+                                break;
+                            case "C":
+                                objInfoImportVO.setDimensionsGroup(ImportExcelUtil.getCellValue(cell));
+                                break;
+                            case "D":
+                                objInfoImportVO.setDimensionsDataType(ImportExcelUtil.getCellValue(cell));
+                                break;
+                            case "E":
+                                objInfoImportVO.setDimensionsSourceDataSource(ImportExcelUtil.getCellValue(cell));
+                                break;
+                            case "F":
+                                objInfoImportVO.setDimensionsSourceTable(ImportExcelUtil.getCellValue(cell));
+                                break;
+                            case "G":
+                                objInfoImportVO.setDimensionsSourceProperty(ImportExcelUtil.getCellValue(cell));
+                                break;
+                            case "H":
+                                objInfoImportVO.setDimensionsDesc(ImportExcelUtil.getCellValue(cell));
+                                break;
+                            default:
+                                break;
+                        }
                     }
+                    objInfoImportVOS.add(objInfoImportVO);
                 }
             }
-            return "success";
+            return objInfoImportVOS;
         } catch (Exception e) {
             log.error("异常01", e);
-        } finally {
-            if (workbook != null) {
-                try {
-                    workbook.close();
-                } catch (IOException e) {
-                    log.error("异常02", e);
-                }
-            }
         }
-        return "false";
+        return List.of();
     }
 
     public byte[] exportExcel(String fileName) {
@@ -166,5 +181,16 @@ public class PoiServiceImpl implements PoiService {
         return List.of(
                 Map.of()
         );
+    }
+
+    /**
+     * 获取excel头上的字母,方便查找对应关系
+     */
+    private String[] getExcelLetters() {
+        return new String[]{
+                "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U",
+                "V", "W", "X", "Y", "Z", "AA", "AB", "AC", "AD", "AE", "AF", "AG", "AH", "AI", "AJ", "AK", "AL", "AM", "AN",
+                "AO", "AP", "AQ"
+        };
     }
 }

@@ -4,7 +4,7 @@ spring:
   application:
     name: sb3-kafka-basic
   config:
-    import: conf/maria-dev.yml,
+    import: conf/maria-dev-yoga14s.yml,
 logging:
   level:
     kafka3: debug

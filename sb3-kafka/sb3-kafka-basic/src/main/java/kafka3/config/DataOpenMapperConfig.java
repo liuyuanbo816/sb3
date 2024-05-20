@@ -15,41 +15,41 @@ import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 
 import javax.sql.DataSource;
 
-@Configuration
-@MapperScan(basePackages = "kafka3.mapper.dataopen",
-        sqlSessionTemplateRef = "dataopenSqlSessionTemplate")
-public class DataOpenMapperConfig {
-
-    @Resource
-    private DataSource dataopenDataSource;
-
-    @Bean
-    @ConfigurationProperties(prefix = "mybatis.configuration.mysql")
-    public org.apache.ibatis.session.Configuration globalMySQLMybatisConfiguration() {
-        return new org.apache.ibatis.session.Configuration();
-    }
-
-    @Bean(name = "dataopenSqlSessionFactory")
-    @Primary
-    public SqlSessionFactory dataopenSqlSessionFactory() throws Exception {
-        SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
-        sqlSessionFactoryBean.setDataSource(dataopenDataSource);
-        sqlSessionFactoryBean.setConfiguration(globalMySQLMybatisConfiguration());
-        sqlSessionFactoryBean.setMapperLocations(new PathMatchingResourcePatternResolver()
-                .getResources("classpath:mapper/dataopen/*Mapper.xml"));
-        return sqlSessionFactoryBean.getObject();
-    }
-
-    @Bean(name = "dataopenTransactionManager")
-    @Primary
-    public DataSourceTransactionManager dataopenTransactionManager() {
-        return new DataSourceTransactionManager(dataopenDataSource);
-    }
-
-    @Bean(name = "dataopenSqlSessionTemplate")
-    @Primary
-    public SqlSessionTemplate dataopenSqlSessionTemplate(@Qualifier("dataopenSqlSessionFactory") SqlSessionFactory dataopenSqlSessionFactory) {
-        return new SqlSessionTemplate(dataopenSqlSessionFactory);
-    }
-
-}
+//@Configuration
+//@MapperScan(basePackages = "kafka3.mapper.dataopen",
+//        sqlSessionTemplateRef = "dataopenSqlSessionTemplate")
+//public class DataOpenMapperConfig {
+//
+//    @Resource
+//    private DataSource dataopenDataSource;
+//
+//    @Bean
+//    @ConfigurationProperties(prefix = "mybatis.configuration.mysql")
+//    public org.apache.ibatis.session.Configuration globalMySQLMybatisConfiguration() {
+//        return new org.apache.ibatis.session.Configuration();
+//    }
+//
+//    @Bean(name = "dataopenSqlSessionFactory")
+//    @Primary
+//    public SqlSessionFactory dataopenSqlSessionFactory() throws Exception {
+//        SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
+//        sqlSessionFactoryBean.setDataSource(dataopenDataSource);
+//        sqlSessionFactoryBean.setConfiguration(globalMySQLMybatisConfiguration());
+//        sqlSessionFactoryBean.setMapperLocations(new PathMatchingResourcePatternResolver()
+//                .getResources("classpath:mapper/dataopen/*Mapper.xml"));
+//        return sqlSessionFactoryBean.getObject();
+//    }
+//
+//    @Bean(name = "dataopenTransactionManager")
+//    @Primary
+//    public DataSourceTransactionManager dataopenTransactionManager() {
+//        return new DataSourceTransactionManager(dataopenDataSource);
+//    }
+//
+//    @Bean(name = "dataopenSqlSessionTemplate")
+//    @Primary
+//    public SqlSessionTemplate dataopenSqlSessionTemplate(@Qualifier("dataopenSqlSessionFactory") SqlSessionFactory dataopenSqlSessionFactory) {
+//        return new SqlSessionTemplate(dataopenSqlSessionFactory);
+//    }
+//
+//}

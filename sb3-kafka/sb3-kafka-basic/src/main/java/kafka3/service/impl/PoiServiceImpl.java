@@ -1,5 +1,7 @@
 package kafka3.service.impl;
 
+import cn.hutool.core.bean.BeanUtil;
+import cn.hutool.core.date.DateUtil;
 import jakarta.annotation.Resource;
 import kafka3.common.ExportExcelUtil;
 import kafka3.common.ImportExcelUtil;
@@ -9,7 +11,6 @@ import kafka3.service.PoiService;
 import kafka3.vo.ImportResultVo;
 import kafka3.vo.ObjInfoImportVO;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellStyle;
 import org.apache.poi.ss.usermodel.Font;
@@ -80,18 +81,15 @@ public class PoiServiceImpl implements PoiService {
                                 objInfoImportVO.setDimensionsGroup(ImportExcelUtil.getCellValue(cell));
                                 break;
                             case "D":
-                                objInfoImportVO.setDimensionsDataType(ImportExcelUtil.getCellValue(cell));
-                                break;
-                            case "E":
                                 objInfoImportVO.setDimensionsSourceDataSource(ImportExcelUtil.getCellValue(cell));
                                 break;
-                            case "F":
+                            case "E":
                                 objInfoImportVO.setDimensionsSourceTable(ImportExcelUtil.getCellValue(cell));
                                 break;
-                            case "G":
+                            case "F":
                                 objInfoImportVO.setDimensionsSourceProperty(ImportExcelUtil.getCellValue(cell));
                                 break;
-                            case "H":
+                            case "G":
                                 objInfoImportVO.setDimensionsDesc(ImportExcelUtil.getCellValue(cell));
                                 break;
                             default:
@@ -108,79 +106,65 @@ public class PoiServiceImpl implements PoiService {
         return List.of();
     }
 
-    public byte[] exportExcel(String fileName) {
+    public byte[] exportExcel(List<Long> objInfoIds) {
         ByteArrayOutputStream byteOut = new ByteArrayOutputStream();
-        List<Map<String, Object>> exportDataList = mock();
-        String head = "2020-3-20人员信息登记表";
-        String[] fieldNameCNArr = new String[]{"姓名", "性别", "年龄", "身高（m）", "出生日期", "创建时间", "简介"};
-        String[] fieldNameENArr = new String[]{"name", "sex", "age", "height", "birthday", "createTime", "intro"};
-
-        Workbook workbook = null;
-        try {
-            if (ImportExcelUtil.isExcel2007(fileName)) {
-                workbook = new XSSFWorkbook();
-            } else if (ImportExcelUtil.isExcel2003(fileName)) {
-                workbook = new HSSFWorkbook();
-            }
-            Sheet sheet;
+        List<ObjInfo> objInfos = objInfoMapper.selectBatchIds(objInfoIds);
+        //String head = "维度导出记录表";
+        String[] fieldNameCNArr = new String[]{"维度标识", "维度名称", "维度编码", "维度分组", "维度来源数据源", "维度来源表", "维度来源属性", "维度描述", "创建人", "创建时间"};
+        String[] fieldNameENArr = new String[]{"objectId", "objectName", "objectCode", "grpId", "datasourceId", "tableCode", "keyCode", "comments", "operId", "createDate"};
+        try (Workbook workbook = new XSSFWorkbook()) {
             //创建一张excel表
-            if (workbook != null) {
-                sheet = workbook.createSheet("sheet1");
-                // 初始化列的宽度
-                for (int i = 0; i < fieldNameCNArr.length; i++) {
-                    switch (i) {
-                        case 4, 5:
-                            ExportExcelUtil.createColumnWidth(sheet, i, 20);
-                            break;
-                        case 6:
-                            ExportExcelUtil.createColumnWidth(sheet, i, 30);
-                            break;
-                        default:
-                            ExportExcelUtil.createColumnWidth(sheet, i, 10);
-                            break;
-                    }
+            Sheet sheet = workbook.createSheet("DimessionsExport");
+            // 初始化列的宽度
+            for (int i = 0; i < fieldNameCNArr.length; i++) {
+                switch (i) {
+                    case 4, 5, 6, 7:
+                        ExportExcelUtil.createColumnWidth(sheet, i, 20);
+                        break;
+                    case 9:
+                        ExportExcelUtil.createColumnWidth(sheet, i, 30);
+                        break;
+                    default:
+                        ExportExcelUtil.createColumnWidth(sheet, i, 16);
+                        break;
                 }
-                //创建并初始化表头
-                int headStartRow = 0;
-                CellStyle style = ExportExcelUtil.createCellStyle(workbook, "宋体", true, (short) 18, Font.COLOR_NORMAL);
-                ExportExcelUtil.setCellStyle(style, HorizontalAlignment.CENTER, VerticalAlignment.CENTER, false);
-                ExportExcelUtil.creatSheetHead(sheet, style, head, headStartRow, 0, 0, 0, 6);
-                //创建并初始化字段行
-                int feildStartRow = 1;
-                Row fieldRow = sheet.createRow(feildStartRow);
-                style = ExportExcelUtil.createCellStyle(workbook, "宋体", true, (short) 14, Font.COLOR_NORMAL);
-                ExportExcelUtil.setCellStyle(style, HorizontalAlignment.CENTER, VerticalAlignment.CENTER, true);
-                for (int i = 0; i < fieldNameCNArr.length; i++) {
-                    Cell cell = fieldRow.createCell(i);
-                    cell.setCellStyle(style);
-                    cell.setCellValue(fieldNameCNArr[i]);
-                }
-
-                //从数据开始行创建并初始化数据单元格
-                int dataStartRow = 2;
-                style = ExportExcelUtil.createCellStyle(workbook, "宋体", false, (short) 12, Font.COLOR_NORMAL);
-                ExportExcelUtil.setCellStyle(style, HorizontalAlignment.CENTER, VerticalAlignment.CENTER, true);
-                ExportExcelUtil.fillSheetData(sheet, style, dataStartRow, exportDataList, fieldNameENArr);
-                workbook.write(byteOut);
             }
+            //创建并初始化表头
+            //int headStartRow = 0;
+            CellStyle style = ExportExcelUtil.createCellStyle(workbook, "宋体", true, (short) 18, Font.COLOR_NORMAL);
+            ExportExcelUtil.setCellStyle(style, HorizontalAlignment.CENTER, VerticalAlignment.CENTER, false);
+            //ExportExcelUtil.creatSheetHead(sheet, style, head, headStartRow, 0, 0, 0, 6);
+            //创建并初始化字段行
+            int feildStartRow = 0;
+            Row fieldRow = sheet.createRow(feildStartRow);
+            style = ExportExcelUtil.createCellStyle(workbook, "宋体", true, (short) 14, Font.COLOR_NORMAL);
+            ExportExcelUtil.setCellStyle(style, HorizontalAlignment.CENTER, VerticalAlignment.CENTER, true);
+            for (int i = 0; i < fieldNameCNArr.length; i++) {
+                Cell cell = fieldRow.createCell(i);
+                cell.setCellStyle(style);
+                cell.setCellValue(fieldNameCNArr[i]);
+            }
+            //从数据开始行创建并初始化数据单元格
+            int dataStartRow = 1;
+            style = ExportExcelUtil.createCellStyle(workbook, "宋体", false, (short) 12, Font.COLOR_NORMAL);
+            ExportExcelUtil.setCellStyle(style, HorizontalAlignment.CENTER, VerticalAlignment.CENTER, true);
+
+            ExportExcelUtil.fillSheetData(sheet, style, dataStartRow, toMap(objInfos), fieldNameENArr);
+            workbook.write(byteOut);
         } catch (IOException e) {
             log.error("异常03", e);
-        } finally {
-            if (workbook != null) {
-                try {
-                    workbook.close();
-                } catch (IOException e) {
-                    log.error("异常04", e);
-                }
-            }
         }
         return byteOut.toByteArray();
     }
 
-    private List<Map<String, Object>> mock() {
-        return List.of(
-                Map.of()
-        );
+    private static List<Map<String, Object>> toMap(List<ObjInfo> objInfos) {
+        List<Map<String, Object>> mapList = new ArrayList<>();
+        for (ObjInfo objInfo : objInfos) {
+            Map<String, Object> map = BeanUtil.beanToMap(objInfo);
+            map.put("createDate", DateUtil.format(objInfo.getCreateDate(), "yyyy-MM-dd"));
+            mapList.add(map);
+        }
+        return mapList;
     }
 
     /**

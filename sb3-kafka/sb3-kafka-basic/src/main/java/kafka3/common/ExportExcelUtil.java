@@ -98,7 +98,10 @@ public class ExportExcelUtil {
      * @param dataList       - 要填充的数据
      * @param fieldNameENArr - 字段的名称
      */
-    public static void fillSheetData(Sheet sheet, CellStyle style, int rowIndex, List<Map<String, Object>> dataList, String[] fieldNameENArr) {
+    public static void fillSheetData(Sheet sheet, CellStyle style,
+                                     int rowIndex,
+                                     List<Map<String, Object>> dataList,
+                                     String[] fieldNameENArr) {
         if (dataList != null && !dataList.isEmpty() && fieldNameENArr.length > 0) {
             for (Map<String, Object> map : dataList) {
                 int index = rowIndex++;
@@ -110,6 +113,5 @@ public class ExportExcelUtil {
                 }
             }
         }
-
     }
 }

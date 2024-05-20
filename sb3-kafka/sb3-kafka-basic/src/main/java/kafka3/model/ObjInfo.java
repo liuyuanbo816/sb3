@@ -1,5 +1,8 @@
 package kafka3.model;
 
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -7,7 +10,9 @@ import java.util.Date;
 
 @Getter
 @Setter
+@TableName("obj_info")
 public class ObjInfo {
+    @TableId(type = IdType.ASSIGN_ID)
     public Long objectId;
     public Long parentId;
     public Long grpId;
@@ -66,4 +71,12 @@ public class ObjInfo {
      * 项目ID
      */
     public Long projectId;
+    /**
+     * 维度来源属性
+     */
+    private String keyCode;
+    /**
+     * 工单号
+     */
+    private String orderNo;
 }

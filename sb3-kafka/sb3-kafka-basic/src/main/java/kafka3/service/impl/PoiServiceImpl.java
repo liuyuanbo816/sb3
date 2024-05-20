@@ -161,7 +161,7 @@ public class PoiServiceImpl implements PoiService {
         List<Map<String, Object>> mapList = new ArrayList<>();
         for (ObjInfo objInfo : objInfos) {
             Map<String, Object> map = BeanUtil.beanToMap(objInfo);
-            map.put("createDate", DateUtil.format(objInfo.getCreateDate(), "yyyy-MM-dd"));
+            map.put("createDate", DateUtil.format(objInfo.getCreateDate(), "yyyy-MM-dd HH:mm:ss"));
             mapList.add(map);
         }
         return mapList;

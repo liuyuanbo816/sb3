@@ -10,7 +10,6 @@ import kafka3.service.PoiService;
 import kafka3.vo.ImportResultVo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -61,7 +60,7 @@ public class ObjInfoController {
     public void exportExcel(@RequestBody Map<String, List<Long>> objInfoMap, HttpServletResponse response) {
         List<Long> objInfoIds = objInfoMap.get("objInfoIds");
         byte[] bytes = poiServiceImpl.exportExcel(objInfoIds);
-        response.setContentType(MediaType.APPLICATION_OCTET_STREAM.getType());
+        response.setContentType("text/html;charset=UTF-8");
         try {
             String fileName = URLEncoder.encode(System.currentTimeMillis() + ".xlsx", "UTF-8");
             response.setHeader("Content-Disposition", "attachment; filename=\"" + fileName + "\"");

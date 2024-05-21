@@ -38,6 +38,9 @@ public class PoiServiceImpl implements PoiService {
     @Resource
     ObjInfoMapper objInfoMapper;
 
+    /**
+     * 导入 Excel
+     */
     @Override
     public ImportResultVo importExcel(MultipartFile file) {
         List<ObjInfoImportVO> objInfoImportVOS = buildObjInfoVos(file);
@@ -101,11 +104,14 @@ public class PoiServiceImpl implements PoiService {
             }
             return objInfoImportVOS;
         } catch (Exception e) {
-            log.error("异常01", e);
+            log.error("构建导入对象异常", e);
         }
         return List.of();
     }
 
+    /**
+     * 导出 Excel
+     */
     public byte[] exportExcel(List<Long> objInfoIds) {
         ByteArrayOutputStream byteOut = new ByteArrayOutputStream();
         List<ObjInfo> objInfos = objInfoMapper.selectBatchIds(objInfoIds);

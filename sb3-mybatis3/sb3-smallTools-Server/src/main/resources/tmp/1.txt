@@ -1,0 +1,12 @@
+component.join.append(srcSchemaCode)
+.append(SqlUtils.STR_POINT)
+.append(path.getSrcTableCode())
+.append(SqlUtils.STR_BLANK)
+.append(srcName)
+.append(SqlUtils.SQL_INNER_JOIN)
+.append(tgtSchemaCode)
+.append(SqlUtils.STR_POINT)
+.append(path.getTgtTableCode())
+.append(SqlUtils.STR_BLANK)
+.append(tgtName)
+.append(SqlUtils.SQL_ON);

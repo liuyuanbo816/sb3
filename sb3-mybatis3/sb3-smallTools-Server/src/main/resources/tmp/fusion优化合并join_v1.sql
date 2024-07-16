@@ -1,4 +1,4 @@
-CREATE TABLE test_bl.tmp_67688494_37_${acct} AS
+CREATE TABLE test_bl.tmp_44283210_37_${acct} AS
 select tb15.consume_area_id,
        tb15.consume_area_name,
        tb15.consume_area_level,
@@ -86,7 +86,7 @@ from (select tb2.area_id                                     as consume_area_id,
                     where (tb7.month_id = $add_month(${month_id}, -1, 0))
                     group by tb8.area_id, tb8.area_name) tb18
                    on tb15.consume_area_id = tb18.consume_area_id and tb15.consume_area_name = tb18.consume_area_name;
-CREATE TABLE test_bl.tmp_37836006_38_${acct} AS
+CREATE TABLE test_bl.tmp_88120775_38_${acct} AS
 select tb33.consume_area_id,
        tb33.consume_area_name,
        tb33.consume_area_level,
@@ -185,11 +185,11 @@ select ${month_id}                           as month_id,
        SUM(t1.nm_sum_fee_1694_yoyGrowth)     as nm_sum_fee_1694_yoyGrowth/**区域nm支出求和*/,
        SUM(t1.nm_sum_fee_1694_yearEnd)       as nm_sum_fee_1694_yearEnd/**区域nm支出求和*/,
        SUM(t1.nm_sum_fee_1694_yearEndGrowth) as nm_sum_fee_1694_yearEndGrowth/**区域nm支出求和*/
-from (select * from test_bl.tmp_67688494_37_${acct} union all select * from test_bl.tmp_37836006_38_${acct}) t1
+from (select * from test_bl.tmp_44283210_37_${acct} union all select * from test_bl.tmp_88120775_38_${acct}) t1
 group by t1.consume_area_id, t1.consume_area_name, t1.consume_area_level;
 test_bl
 .
-tmp_67688494_37_
+tmp_44283210_37_
 ${acct}
-,test_bl.tmp_37836006_38_
+,test_bl.tmp_88120775_38_
 ${acct}

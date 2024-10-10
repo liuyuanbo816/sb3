@@ -1,0 +1,3 @@
+spring:
+  application:
+    name: sb3-netty-chat-ch3-dev

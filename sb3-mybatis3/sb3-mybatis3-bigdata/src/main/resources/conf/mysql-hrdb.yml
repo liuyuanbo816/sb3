@@ -1,0 +1,13 @@
+spring:
+  datasource:
+    mysql:
+      hrdb:
+        driverClassName: com.mysql.cj.jdbc.Driver
+        jdbcUrl: jdbc:mysql://172.21.72.155:8003/dataportal?serverTimezone=Asia/Shanghai
+        username: dataportal
+        password: 'dataportal'
+
+mybatis:
+  configuration:
+    mysql:
+     map-underscore-to-camel-case: on

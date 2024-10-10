@@ -14,6 +14,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import javax.sql.DataSource;
+import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -33,6 +35,9 @@ public class PersonMapperTest {
 
     @Autowired
     IsaleTestMapper isaleTestMapper;
+
+    @Autowired
+    DataSource mariadbDataSource;
 
     @Test
     public void testPersonMapper() {
@@ -57,6 +62,11 @@ public class PersonMapperTest {
         LOG.info("=======================================");
         List<IsaleTest> isaleList = isaleTestMapper.list();
         LOG.info("查询ISALE列表: {}", isaleList);
+    }
+
+    @Test
+    public void testContext() throws SQLException {
+        LOG.info("mariadbDataSource: {}", mariadbDataSource.getConnection());
     }
 
 }

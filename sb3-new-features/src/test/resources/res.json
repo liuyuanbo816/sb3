@@ -1,0 +1,36 @@
+{
+  "entityVOList": [
+    {
+      "entityCode": "objInfo",
+      "fs": [
+        {
+          "f": "objectId",
+          "v": 27222
+        },
+        {
+          "f": "grpId",
+          "v": "118298"
+        },
+        {
+          "f": "objectName",
+          "v": "用户基础信息分表whouehouse"
+        },
+        {
+          "f": "objectAlias",
+          "v": "用户基础信息分表whouehouse"
+        },
+        {
+          "f": "dataCntType",
+          "v": ""
+        },
+        {
+          "f": "comments",
+          "v": ""
+        }
+      ],
+      "id": 27222
+    }
+  ],
+  "language": "zh-CN",
+  "envType": "kunmingbanshichu"
+}

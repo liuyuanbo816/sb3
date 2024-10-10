@@ -1,0 +1,8 @@
+db:
+  host: 192.168.110.180
+spring:
+  datasource:
+#    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mariadb://${db.host}:3316/meishi
+    username: root
+    password: 123456

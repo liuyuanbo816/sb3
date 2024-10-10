@@ -1,5 +1,5 @@
 server:
-  port: 10086
+  port: 9526
 spring:
   application:
     name: RedisSecKill

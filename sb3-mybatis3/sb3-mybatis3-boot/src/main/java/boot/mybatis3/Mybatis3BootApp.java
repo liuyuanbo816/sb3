@@ -13,15 +13,15 @@ import java.sql.SQLException;
 
 @SpringBootApplication
 @MapperScan(basePackages = {"boot.mybatis3.mapper"})
-public class App11111 implements CommandLineRunner {
+public class Mybatis3BootApp implements CommandLineRunner {
 
-    public static final Logger LOG = LoggerFactory.getLogger(App11111.class);
+    public static final Logger LOG = LoggerFactory.getLogger(Mybatis3BootApp.class);
 
     @Autowired
     DataSource dataSource;
 
     public static void main(String[] args) {
-        SpringApplication.run(App11111.class, args);
+        SpringApplication.run(Mybatis3BootApp.class, args);
 
     }
 

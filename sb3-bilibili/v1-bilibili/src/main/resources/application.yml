@@ -1,5 +1,5 @@
 server:
-  port: 19527
+  port: 9521
 spring:
   application:
     name: v1-bilibili

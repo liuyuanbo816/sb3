@@ -1,5 +1,5 @@
 server:
-  port: 11111
+  port: 9522
 spring:
   application:
     name: sb3-mybatis3-boot

@@ -1,5 +1,5 @@
 server:
-  port: 11011
+  port: 9525
 db:
   host: 192.168.110.180
 spring:

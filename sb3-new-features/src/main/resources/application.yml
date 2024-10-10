@@ -1,5 +1,5 @@
 server:
-  port: 10081
+  port: 9524
 spring:
   application:
     name: sb3-new-features

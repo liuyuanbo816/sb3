@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.zmz.sb3.redis.seckill.mapper.VoucherMapper">
+
+    <select id="queryVoucherOfShop" resultType="org.zmz.sb3.redis.seckill.domain.Voucher" parameterType="java.lang.Long">
+        SELECT tv.id,
+               tv.shop_id,
+               tv.title,
+               tv.subTitle,
+               tv.rules,
+               tv.pay_value,
+               tv.actual_value,
+               tv.type,
+               tsv.stock,
+               tsv.begin_time,
+               tsv.end_time
+        FROM tb_voucher tv
+                 LEFT JOIN tb_seckill_voucher tsv ON tv.id = tsv.voucher_id
+        WHERE tv.shop_id = #{shopId}
+          AND tv.status = 1
+    </select>
+</mapper>

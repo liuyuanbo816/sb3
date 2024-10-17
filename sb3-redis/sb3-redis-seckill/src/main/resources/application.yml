@@ -1,3 +1,26 @@
+server:
+  port: 9526
 spring:
-  profiles:
-    active: code01,common
+  application:
+    name: RedisSecKill
+  thymeleaf:
+    enabled: on
+    mode: HTML
+    cache: off # 开发阶段关闭
+    prefix: "classpath:/templates/"
+    suffix: .html
+    encoding: UTF-8
+    servlet:
+      content-type: text/html
+  config:
+    import:
+      - conf/ge62-host.yml
+      - conf/mariadb-ge62.yml
+      - conf/mysql-ge62.yml
+      - conf/mybatis-plus.yml
+      - conf/redis-ge62.yml
+  jackson:
+    default-property-inclusion: non_null
+logging:
+  level:
+    org.zmz.sb3.redis.seckill: debug

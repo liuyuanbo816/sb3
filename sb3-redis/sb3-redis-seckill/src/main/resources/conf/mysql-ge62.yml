@@ -1,0 +1,7 @@
+spring:
+  datasource:
+    mysql:
+      driverClassName: com.mysql.cj.jdbc.Driver
+      jdbcUrl: jdbc:mysql://${ge62.host}:3316/testDb?serverTimezone=Asia/Shanghai
+      username: root
+      password: '123456'

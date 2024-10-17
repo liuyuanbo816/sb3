@@ -1,9 +1,0 @@
-mariadb:
-  host: 192.168.110.180
-  port: 3316
-  username: root
-  password: '123456'
-redis:
-  host: 172.29.71.176
-  port: 6379
-  password: '123456'

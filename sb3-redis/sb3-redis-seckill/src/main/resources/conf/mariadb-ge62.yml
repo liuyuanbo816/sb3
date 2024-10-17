@@ -1,0 +1,7 @@
+spring:
+  datasource:
+    mariadb:
+      driverClassName: org.mariadb.jdbc.Driver
+      jdbcUrl: jdbc:mariadb://${ge62.host}:4316/testDb?serverTimezone=Asia/Shanghai
+      username: root
+      password: '123456'

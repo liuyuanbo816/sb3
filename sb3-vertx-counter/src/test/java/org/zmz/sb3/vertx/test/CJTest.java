@@ -44,4 +44,13 @@ public class CJTest {
         List<Long> llist = list.stream().map(i -> (long) i).toList();
         System.out.println(llist);
     }
+
+    @Test
+    public void tst4() {
+        //String path = "null.29";
+        //String path = "null.29.32";
+        String path = "null.29.32.33.34";
+        int idx = path.lastIndexOf(".");
+        System.out.println(path.substring(idx+1));
+    }
 }

@@ -6,9 +6,8 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>org.zmz</groupId>
-        <artifactId>sb3</artifactId>
+        <artifactId>sb3-security</artifactId>
         <version>1.0-SNAPSHOT</version>
-        <relativePath>../../pom.xml</relativePath>
     </parent>
 
     <artifactId>sb3-security-core</artifactId>

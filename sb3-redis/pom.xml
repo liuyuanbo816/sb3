@@ -12,10 +12,15 @@
 
     <artifactId>sb3-redis</artifactId>
 
+    <modules>
+        <module>sb3-redis-seckill</module>
+    </modules>
+
     <properties>
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <mariadb.version>3.4.1</mariadb.version>
     </properties>
 
     <packaging>pom</packaging>

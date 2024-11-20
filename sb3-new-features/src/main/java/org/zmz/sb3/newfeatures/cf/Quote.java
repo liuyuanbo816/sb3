@@ -25,11 +25,11 @@ public class Quote {
 
     public static Quote parse(String content) {
         String[] items = StrUtil.splitToArray(content, ":");
-        return new Quote(items[0], Double.parseDouble(items[1]), Discount.valueOf(items[2]));
+        return new Quote(items[1], Double.parseDouble(items[2]), Discount.valueOf(items[3]));
     }
 
     public static void main(String[] args) {
-        String content = "bestShop:99.99:LEVEL5";
+        String content = "Iphone16:bestShop:99.99:LEVEL5";
         Quote quote = Quote.parse(content);
         log.info("{}", quote);
     }

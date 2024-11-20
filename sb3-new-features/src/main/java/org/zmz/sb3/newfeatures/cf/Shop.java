@@ -37,7 +37,7 @@ public class Shop {
         int len = Discount.values().length;
         // 模拟随机折扣
         Discount percent = Discount.values()[RandomUtil.randomInt(len)];
-        return String.format("%s:%.2f:%s", this.getName(), price, percent);
+        return String.format("%s:%s:%.2f:%s", product, this.getName(), price, percent);
     }
 
     public Future<String> getPriceAsync(String product) {

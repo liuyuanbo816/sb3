@@ -8,3 +8,7 @@ spring:
     url: jdbc:mariadb://localhost:3306/mytest
     username: root
     password: 123456
+logging:
+  level:
+    org.springframework.transaction: debug
+    org.springframework.jdbc: debug

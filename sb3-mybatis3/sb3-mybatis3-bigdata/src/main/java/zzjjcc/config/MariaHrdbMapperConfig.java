@@ -16,40 +16,40 @@ import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import javax.sql.DataSource;
 
 @Configuration
-@MapperScan(basePackages = "zzjjcc.mapper.mysql",
-        sqlSessionTemplateRef = "mysqlSqlSessionTemplate")
-public class MySQLMapperConfig {
+@MapperScan(basePackages = "zzjjcc.mapper.maria",
+        sqlSessionTemplateRef = "mariaHrdbSqlSessionTemplate")
+public class MariaHrdbMapperConfig {
 
     @Resource
-    private DataSource mysqlDataSource;
+    private DataSource mariaHrdbDataSource;
 
     @Bean
-    @ConfigurationProperties(prefix = "mybatis.configuration.mysql")
-    public org.apache.ibatis.session.Configuration globalMySQLMybatisConfiguration() {
+    @ConfigurationProperties(prefix = "mybatis.configuration.maria")
+    public org.apache.ibatis.session.Configuration globalMariaMybatisConfiguration() {
         return new org.apache.ibatis.session.Configuration();
     }
 
-    @Bean(name = "mysqlSqlSessionFactory")
+    @Bean(name = "mariaHrdbSqlSessionFactory")
     @Primary
-    public SqlSessionFactory mysqlSqlSessionFactory() throws Exception {
+    public SqlSessionFactory mariaHrdbSqlSessionFactory() throws Exception {
         SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
-        sqlSessionFactoryBean.setDataSource(mysqlDataSource);
-        sqlSessionFactoryBean.setConfiguration(globalMySQLMybatisConfiguration());
+        sqlSessionFactoryBean.setDataSource(mariaHrdbDataSource);
+        sqlSessionFactoryBean.setConfiguration(globalMariaMybatisConfiguration());
         sqlSessionFactoryBean.setMapperLocations(new PathMatchingResourcePatternResolver()
-                .getResources("classpath:mapper/mysql/*Mapper.xml"));
+                .getResources("classpath:mapper/maria/*Mapper.xml"));
         return sqlSessionFactoryBean.getObject();
     }
 
-    @Bean(name = "mysqlTransactionManager")
+    @Bean(name = "mariaHrdbTransactionManager")
     @Primary
-    public DataSourceTransactionManager mysqlTransactionManager() {
-        return new DataSourceTransactionManager(mysqlDataSource);
+    public DataSourceTransactionManager mariaHrdbTransactionManager() {
+        return new DataSourceTransactionManager(mariaHrdbDataSource);
     }
 
-    @Bean(name = "mysqlSqlSessionTemplate")
+    @Bean(name = "mariaHrdbSqlSessionTemplate")
     @Primary
-    public SqlSessionTemplate mysqlSqlSessionTemplate(@Qualifier("mysqlSqlSessionFactory") SqlSessionFactory mysqlSqlSessionFactory) {
-        return new SqlSessionTemplate(mysqlSqlSessionFactory);
+    public SqlSessionTemplate mariaSqlSessionTemplate(@Qualifier("mariaHrdbSqlSessionFactory") SqlSessionFactory mariaHrdbSqlSessionFactory) {
+        return new SqlSessionTemplate(mariaHrdbSqlSessionFactory);
     }
 
 }

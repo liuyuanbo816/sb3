@@ -16,40 +16,40 @@ import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import javax.sql.DataSource;
 
 @Configuration
-@MapperScan(basePackages = "zzjjcc.mapper.pgsql",
-        sqlSessionTemplateRef = "pgsqlSqlSessionTemplate")
-public class PgSQLMapperConfig {
+@MapperScan(basePackages = "zzjjcc.mapper.mysql",
+        sqlSessionTemplateRef = "mysqlHrdbSqlSessionTemplate")
+public class MySQLHrdbMapperConfig {
 
     @Resource
-    private DataSource pgsqlDataSource;
+    private DataSource mysqlHrdbDataSource;
 
     @Bean
-    @ConfigurationProperties(prefix = "mybatis.configuration.pgsql")
-    public org.apache.ibatis.session.Configuration globalPgSQLMybatisConfiguration() {
+    @ConfigurationProperties(prefix = "mybatis.configuration.mysql")
+    public org.apache.ibatis.session.Configuration globalMySQLMybatisConfiguration() {
         return new org.apache.ibatis.session.Configuration();
     }
 
-    @Bean(name = "pgsqlSqlSessionFactory")
+    @Bean(name = "mysqlHrdbSqlSessionFactory")
     @Primary
-    public SqlSessionFactory pgsqlSqlSessionFactory() throws Exception {
+    public SqlSessionFactory mysqlSqlSessionFactory() throws Exception {
         SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
-        sqlSessionFactoryBean.setDataSource(pgsqlDataSource);
-        sqlSessionFactoryBean.setConfiguration(globalPgSQLMybatisConfiguration());
+        sqlSessionFactoryBean.setDataSource(mysqlHrdbDataSource);
+        sqlSessionFactoryBean.setConfiguration(globalMySQLMybatisConfiguration());
         sqlSessionFactoryBean.setMapperLocations(new PathMatchingResourcePatternResolver()
-                .getResources("classpath:mapper/pgsql/*Mapper.xml"));
+                .getResources("classpath:mapper/mysql/*Mapper.xml"));
         return sqlSessionFactoryBean.getObject();
     }
 
-    @Bean(name = "transactionManager")
+    @Bean(name = "mysqlHrdbTransactionManager")
     @Primary
-    public DataSourceTransactionManager transactionManager() {
-        return new DataSourceTransactionManager(pgsqlDataSource);
+    public DataSourceTransactionManager mysqlHrdbTransactionManager() {
+        return new DataSourceTransactionManager(mysqlHrdbDataSource);
     }
 
-    @Bean(name = "pgsqlSqlSessionTemplate")
+    @Bean(name = "mysqlHrdbSqlSessionTemplate")
     @Primary
-    public SqlSessionTemplate pgsqlSqlSessionTemplate(@Qualifier("pgsqlSqlSessionFactory") SqlSessionFactory pgsqlSqlSessionFactory) {
-        return new SqlSessionTemplate(pgsqlSqlSessionFactory);
+    public SqlSessionTemplate mysqlHrdbSqlSessionTemplate(@Qualifier("mysqlHrdbSqlSessionFactory") SqlSessionFactory mysqlHrdbSqlSessionFactory) {
+        return new SqlSessionTemplate(mysqlHrdbSqlSessionFactory);
     }
 
 }

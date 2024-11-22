@@ -9,21 +9,21 @@ import javax.sql.DataSource;
 
 @Configuration
 public class DataSourceConfig {
-    @Bean(name = "mysqlDataSource")
+    @Bean(name = "mysqlHrdbDataSource")
     @ConfigurationProperties(prefix = "spring.datasource.mysql.hrdb")
-    public DataSource mysqlDataSource() {
+    public DataSource mysqlHrdbDataSource() {
         return DataSourceBuilder.create().build();
     }
 
-    @Bean(name = "mariaDataSource")
+    @Bean(name = "mariaHrdbDataSource")
     @ConfigurationProperties(prefix = "spring.datasource.maria.hrdb")
-    public DataSource mariaDataSource() {
+    public DataSource mariaHrdbDataSource() {
         return DataSourceBuilder.create().build();
     }
 
-    @Bean(name = "pgsqlDataSource")
+    @Bean(name = "pgsqlHrdbDataSource")
     @ConfigurationProperties(prefix = "spring.datasource.pgsql.hrdb")
-    public DataSource pgsqlDataSource() {
+    public DataSource pgsqlHrdbDataSource() {
         return DataSourceBuilder.create().build();
     }
 }

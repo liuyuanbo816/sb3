@@ -1,6 +1,6 @@
 spring:
   datasource:
-    pgsql:
+    postgresql:
       hrdb:
         driverClassName: org.postgresql.Driver
         jdbcUrl: jdbc:postgresql://localhost:5432/hrdb
@@ -9,5 +9,6 @@ spring:
 
 mybatis:
   configuration:
-    pgsql:
-      map-underscore-to-camel-case: on
+    postgresql:
+      hrdb:
+        map-underscore-to-camel-case: on

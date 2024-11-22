@@ -4,9 +4,12 @@ spring:
   application:
     name: sb3-mybatis3-bigdata
   config:
-    import: conf/mysql-hrdb.yml,conf/pgsql-hrdb.yml,conf/maria-hrdb.yml,
+    import: conf/mysql.yml,conf/postgresql.yml,conf/maria.yml,
   thymeleaf:
     cache: off
 logging:
   level:
     zzjjcc: debug
+    org.springframework.transaction: debug
+    org.springframework.jdbc: debug
+

@@ -1,4 +1,4 @@
-package zzjjcc.mapper.mysql;
+package zzjjcc.mapper.maria.hrdb;
 
 import zzjjcc.model.Job;
 

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="zzjjcc.mapper.maria.esb.TbA1Mapper">
+    <insert id="simpleInsertTbA1">
+        insert into tb_a1(c1) values (#{c1})
+    </insert>
+</mapper>

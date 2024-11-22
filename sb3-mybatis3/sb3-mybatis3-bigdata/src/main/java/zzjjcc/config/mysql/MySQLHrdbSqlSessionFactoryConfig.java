@@ -1,4 +1,4 @@
-package zzjjcc.config;
+package zzjjcc.config.mysql;
 
 import jakarta.annotation.Resource;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -16,16 +16,16 @@ import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import javax.sql.DataSource;
 
 @Configuration
-@MapperScan(basePackages = "zzjjcc.mapper.mysql",
+@MapperScan(basePackages = "zzjjcc.mapper.mysql.hrdb",
         sqlSessionTemplateRef = "mysqlHrdbSqlSessionTemplate")
-public class MySQLHrdbMapperConfig {
+public class MySQLHrdbSqlSessionFactoryConfig {
 
     @Resource
     private DataSource mysqlHrdbDataSource;
 
     @Bean
-    @ConfigurationProperties(prefix = "mybatis.configuration.mysql")
-    public org.apache.ibatis.session.Configuration globalMySQLMybatisConfiguration() {
+    @ConfigurationProperties(prefix = "mybatis.configuration.mysql.hrdb")
+    public org.apache.ibatis.session.Configuration mysqlHrdbMybatisConfiguration() {
         return new org.apache.ibatis.session.Configuration();
     }
 
@@ -34,9 +34,9 @@ public class MySQLHrdbMapperConfig {
     public SqlSessionFactory mysqlSqlSessionFactory() throws Exception {
         SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
         sqlSessionFactoryBean.setDataSource(mysqlHrdbDataSource);
-        sqlSessionFactoryBean.setConfiguration(globalMySQLMybatisConfiguration());
+        sqlSessionFactoryBean.setConfiguration(mysqlHrdbMybatisConfiguration());
         sqlSessionFactoryBean.setMapperLocations(new PathMatchingResourcePatternResolver()
-                .getResources("classpath:mapper/mysql/*Mapper.xml"));
+                .getResources("classpath:mapper/mysql/hrdb/*Mapper.xml"));
         return sqlSessionFactoryBean.getObject();
     }
 

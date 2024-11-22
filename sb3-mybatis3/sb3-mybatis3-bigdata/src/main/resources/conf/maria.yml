@@ -1,0 +1,27 @@
+spring:
+  datasource:
+    maria:
+      hrdb:
+        driverClassName: org.mariadb.jdbc.Driver
+        jdbcUrl: jdbc:mariadb://localhost:3306/hrdb?serverTimezone=Asia/Shanghai
+        username: root
+        password: '123456'
+      esb:
+        driverClassName: org.mariadb.jdbc.Driver
+        jdbcUrl: jdbc:mariadb://localhost:3306/esbtest?serverTimezone=Asia/Shanghai
+        username: root
+        password: '123456'
+      eqb:
+        driverClassName: org.mariadb.jdbc.Driver
+        jdbcUrl: jdbc:mariadb://localhost:3306/eqbtest?serverTimezone=Asia/Shanghai
+        username: root
+        password: '123456'
+mybatis:
+  configuration:
+    maria:
+      hrdb:
+        map-underscore-to-camel-case: on
+      esb:
+        map-underscore-to-camel-case: on
+      eqb:
+        map-underscore-to-camel-case: on

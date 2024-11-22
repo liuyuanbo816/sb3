@@ -14,11 +14,11 @@ import java.util.Map;
 public class CommonCodeToNameController {
 
     @Resource
-    CommonCodeToNameService commonCodeToNameServiceImpl;
+    CommonCodeToNameService commonCodeToNameService;
 
     @PostMapping("/commonCodeToNameQuery")
     public R<Map<String, String>> commonCodeToNameQuery(@RequestBody CommonCodeToNameQueryDTO dto) {
-        Map<String, String> map = commonCodeToNameServiceImpl.commonCodeToName(dto);
+        Map<String, String> map = commonCodeToNameService.commonCodeToName(dto);
         return R.ok(map);
     }
 

@@ -1,4 +1,4 @@
-package zzjjcc.mapper.maria;
+package zzjjcc.mapper.maria.hrdb;
 
 import org.apache.ibatis.annotations.Param;
 import zzjjcc.dto.CommonCodeToNameQueryDTO;

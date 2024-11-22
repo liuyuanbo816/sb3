@@ -1,4 +1,4 @@
-package zzjjcc.mapper.mysql;
+package zzjjcc.mapper.mysql.hrdb;
 
 import zzjjcc.dto.CommonCodeToNameQueryDTO;
 

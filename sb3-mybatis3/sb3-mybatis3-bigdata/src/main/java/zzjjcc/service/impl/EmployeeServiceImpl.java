@@ -4,7 +4,7 @@ import com.alibaba.excel.EasyExcelFactory;
 import jakarta.annotation.Resource;
 import jakarta.servlet.ServletOutputStream;
 import org.springframework.stereotype.Service;
-import zzjjcc.mapper.pgsql.EmployeeMapper;
+import zzjjcc.mapper.maria.hrdb.EmployeeMapper;
 import zzjjcc.model.Employee;
 import zzjjcc.service.EmployeeService;
 

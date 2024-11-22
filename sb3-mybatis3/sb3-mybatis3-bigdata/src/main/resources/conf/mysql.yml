@@ -10,4 +10,5 @@ spring:
 mybatis:
   configuration:
     mysql:
-     map-underscore-to-camel-case: on
+      hrdb:
+        map-underscore-to-camel-case: on

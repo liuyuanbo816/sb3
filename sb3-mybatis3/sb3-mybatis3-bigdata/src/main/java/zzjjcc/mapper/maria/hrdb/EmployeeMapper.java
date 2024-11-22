@@ -1,4 +1,4 @@
-package zzjjcc.mapper.pgsql;
+package zzjjcc.mapper.maria.hrdb;
 
 import org.apache.ibatis.annotations.Param;
 import zzjjcc.model.Employee;

@@ -3,7 +3,7 @@ package zzjjcc.service.impl;
 import jakarta.annotation.Resource;
 import org.springframework.stereotype.Service;
 import zzjjcc.dto.CommonCodeToNameQueryDTO;
-import zzjjcc.mapper.maria.DepartmentMapper;
+import zzjjcc.mapper.maria.hrdb.DepartmentMapper;
 import zzjjcc.model.Department;
 import zzjjcc.service.DepartmentsService;
 

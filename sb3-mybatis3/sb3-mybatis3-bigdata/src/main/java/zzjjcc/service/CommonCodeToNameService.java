@@ -1,6 +1,7 @@
 package zzjjcc.service;
 
 import jakarta.annotation.Resource;
+import org.springframework.aop.framework.AopContext;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import zzjjcc.dto.CommonCodeToNameQueryDTO;
@@ -35,19 +36,22 @@ public class CommonCodeToNameService {
         tbB2Mapper.simpleInsertTbB2(">>> foo c2_" + content);
     }
 
-    @Transactional(rollbackFor = Exception.class)
+    @Transactional(rollbackFor = Exception.class, transactionManager = "mariaEsbTransactionManager")
     public void bar(String content) {
         tbA1Mapper.simpleInsertTbA1("WWW bar c1__" + content);
+
+        CommonCodeToNameService commonCodeToNameService = (CommonCodeToNameService) AopContext.currentProxy();
+        commonCodeToNameService.simpleInsertTbB2(content);
         int i = 1 / 0;
-        simpleInsertTbB2(content);
     }
 
-    @Transactional(rollbackFor = Exception.class)
+    @Transactional(rollbackFor = Exception.class, transactionManager = "mariaEsbTransactionManager")
     public void bar1(String content) {
         tbA1Mapper.simpleInsertTbA1("WWW bar c1__" + content);
         int i = 1 / 0;
     }
 
+    @Transactional(rollbackFor = Exception.class, transactionManager = "mariaEqbTransactionManager")
     public void simpleInsertTbB2(String content) {
         tbB2Mapper.simpleInsertTbB2("WWW bar c2__" + content);
     }

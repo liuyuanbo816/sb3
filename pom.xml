@@ -21,6 +21,7 @@
         <module>sb3-kafka</module>
         <module>leetcode</module>
         <module>sb3-bigdata</module>
+        <module>sb3-starter</module>
     </modules>
 
     <properties>

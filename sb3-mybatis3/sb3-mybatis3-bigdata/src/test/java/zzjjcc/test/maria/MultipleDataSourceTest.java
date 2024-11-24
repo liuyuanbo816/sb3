@@ -26,4 +26,9 @@ public class MultipleDataSourceTest {
         commonCodeToNameService.bar1(">>>>>>");
     }
 
+    @Test
+    public void testBarDDS() {
+        commonCodeToNameService.barDDS(">>>>>>");
+    }
+
 }

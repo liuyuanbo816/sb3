@@ -1,10 +1,10 @@
 package zzjjcc.service;
 
+import io.jcz.annotation.DDSTransactional;
 import jakarta.annotation.Resource;
 import org.springframework.aop.framework.AopContext;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import zzjjcc.config.anno.DDSTransactional;
 import zzjjcc.dto.CommonCodeToNameQueryDTO;
 import zzjjcc.mapper.maria.eqb.TbB2Mapper;
 import zzjjcc.mapper.maria.esb.TbA1Mapper;

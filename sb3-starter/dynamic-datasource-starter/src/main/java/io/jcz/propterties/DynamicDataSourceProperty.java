@@ -15,7 +15,7 @@ public class DynamicDataSourceProperty {
     private String primary = DataSourceConstant.PRIMARY;
 
     //所有的数据源
-    private Map<String, DataSourceProperty> dataSource = new LinkedHashMap<>();
+    private Map<String, DataSourceProperty> ds = new LinkedHashMap<>();
 
     public String getPrimary() {
         return primary;
@@ -26,10 +26,10 @@ public class DynamicDataSourceProperty {
     }
 
     public Map<String, DataSourceProperty> getDataSource() {
-        return dataSource;
+        return ds;
     }
 
-    public void setDataSource(Map<String, DataSourceProperty> dataSource) {
-        this.dataSource = dataSource;
+    public void setDataSource(Map<String, DataSourceProperty> ds) {
+        this.ds = ds;
     }
 }

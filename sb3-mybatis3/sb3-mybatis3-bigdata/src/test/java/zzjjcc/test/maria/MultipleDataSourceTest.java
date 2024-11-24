@@ -53,7 +53,7 @@ public class MultipleDataSourceTest {
 
     @Test
     public void testMyEqb() {
-        myEqbService.simpleInsertTbB2("??????");
+        myEqbService.simpleInsertTbB2("猪八戒");
         //List<Map<String, Object>> list = myEqbService.list();
         //list.forEach(System.out::println);
     }

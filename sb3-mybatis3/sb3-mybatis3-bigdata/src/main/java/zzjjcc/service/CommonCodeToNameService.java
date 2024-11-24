@@ -5,28 +5,17 @@ import jakarta.annotation.Resource;
 import org.springframework.aop.framework.AopContext;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import zzjjcc.dto.CommonCodeToNameQueryDTO;
 import zzjjcc.mapper.maria.eqb.TbB2Mapper;
 import zzjjcc.mapper.maria.esb.TbA1Mapper;
-import zzjjcc.mapper.mysql.hrdb.CommonCodeToNameMapper;
-
-import java.util.Map;
 
 @Service
 public class CommonCodeToNameService {
-
-    @Resource
-    CommonCodeToNameMapper commonCodeToNameMapper;
 
     @Resource
     TbA1Mapper tbA1Mapper;
 
     @Resource
     TbB2Mapper tbB2Mapper;
-
-    public Map<String, String> commonCodeToName(CommonCodeToNameQueryDTO commonCodeToNameQueryDTO) {
-        return commonCodeToNameMapper.commonCodeToName(commonCodeToNameQueryDTO);
-    }
 
     @Transactional(rollbackFor = Exception.class)
     public void foo(String content) {

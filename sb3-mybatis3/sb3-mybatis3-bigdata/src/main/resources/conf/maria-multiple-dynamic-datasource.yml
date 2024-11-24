@@ -12,12 +12,12 @@ spring:
         esb:
           type: com.alibaba.druid.pool.DruidDataSource
           driverClassName: org.mariadb.jdbc.Driver
-          url: jdbc:mariadb://localhost:3306/esb?serverTimezone=Asia/Shanghai
+          url: jdbc:mariadb://localhost:3306/esbtest?serverTimezone=Asia/Shanghai
           username: root
           password: '123456'
         eqb:
           type: com.alibaba.druid.pool.DruidDataSource
           driverClassName: org.mariadb.jdbc.Driver
-          url: jdbc:mariadb://localhost:3306/eqb?serverTimezone=Asia/Shanghai
+          url: jdbc:mariadb://localhost:3306/eqbtest?serverTimezone=Asia/Shanghai
           username: root
           password: '123456'

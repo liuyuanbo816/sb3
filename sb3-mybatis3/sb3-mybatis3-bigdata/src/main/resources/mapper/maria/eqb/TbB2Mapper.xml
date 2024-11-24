@@ -6,4 +6,8 @@
     <insert id="simpleInsertTbB2">
         insert into tb_b2(c2) values (#{c2})
     </insert>
+
+    <select id="list" resultType="map">
+        select id,c2 from tb_b2
+    </select>
 </mapper>

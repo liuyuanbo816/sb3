@@ -42,7 +42,7 @@ public class DynamicDataSourceAutoConfiguration {
     @Order(0)
     @Bean
     public YamlDynamicDataSourceProvider yamlDynamicDataSourceProvider() {
-        return new YamlDynamicDataSourceProvider(dataSourceProperty.getDataSource());
+        return new YamlDynamicDataSourceProvider(dataSourceProperty.getDs());
     }
 
     //当前不存在其它datasource才去装配

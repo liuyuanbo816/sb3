@@ -25,11 +25,11 @@ public class DynamicDataSourceProperty {
         this.primary = primary;
     }
 
-    public Map<String, DataSourceProperty> getDataSource() {
+    public Map<String, DataSourceProperty> getDs() {
         return ds;
     }
 
-    public void setDataSource(Map<String, DataSourceProperty> ds) {
+    public void setDs(Map<String, DataSourceProperty> ds) {
         this.ds = ds;
     }
 }

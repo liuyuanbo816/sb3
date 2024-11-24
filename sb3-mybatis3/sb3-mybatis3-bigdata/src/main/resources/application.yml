@@ -4,8 +4,7 @@ spring:
   application:
     name: sb3-mybatis3-bigdata
   config:
-    # import: conf/mysql.yml,conf/postgresql.yml,conf/maria.yml
-    import: conf/maria-multiple-dynamic-datasource.yml,
+     import: conf/mysql.yml,conf/postgresql.yml,conf/maria.yml,conf/maria-multiple-dynamic-datasource.yml,
   thymeleaf:
     cache: off
 logging:

@@ -17,6 +17,7 @@
         <module>sb3-mybatis3-boot</module>
         <module>sb3-smallTools-Server</module>
         <module>sb3-mybatis3-bigdata</module>
+        <module>sb3-mybatisPlus</module>
     </modules>
 
     <properties>

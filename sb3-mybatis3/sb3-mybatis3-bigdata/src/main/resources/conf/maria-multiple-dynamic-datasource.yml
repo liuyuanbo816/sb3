@@ -21,3 +21,9 @@ spring:
           url: jdbc:mariadb://localhost:3306/eqbtest?serverTimezone=Asia/Shanghai
           username: root
           password: '123456'
+        mytest:
+          type: com.alibaba.druid.pool.DruidDataSource
+          driverClassName: com.mysql.cj.jdbc.Driver
+          url: jdbc:mariadb://192.168.110.111:3306/mytest
+          username: root
+          password: '123456'

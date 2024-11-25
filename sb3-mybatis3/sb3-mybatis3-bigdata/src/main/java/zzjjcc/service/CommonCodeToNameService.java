@@ -26,7 +26,7 @@ public class CommonCodeToNameService {
         tbB2Mapper.simpleInsertTbB2(">>> foo c2_" + content);
     }
 
-    @Transactional(rollbackFor = Exception.class, transactionManager = "mariaEsbTransactionManager")
+    @Transactional(rollbackFor = Exception.class)
     public void bar(String content) {
         tbA1Mapper.simpleInsertTbA1("WWW bar c1__" + content);
 
@@ -44,13 +44,13 @@ public class CommonCodeToNameService {
         int i = 1 / 0;
     }
 
-    @Transactional(rollbackFor = Exception.class, transactionManager = "mariaEsbTransactionManager")
+    @Transactional(rollbackFor = Exception.class)
     public void bar1(String content) {
         tbA1Mapper.simpleInsertTbA1("WWW bar c1__" + content);
         int i = 1 / 0;
     }
 
-    @Transactional(rollbackFor = Exception.class, transactionManager = "mariaEqbTransactionManager")
+    @Transactional(rollbackFor = Exception.class)
     public void simpleInsertTbB2(String content) {
         tbB2Mapper.simpleInsertTbB2("WWW bar c2__" + content);
     }

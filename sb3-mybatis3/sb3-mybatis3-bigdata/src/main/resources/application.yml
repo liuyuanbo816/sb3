@@ -4,7 +4,7 @@ spring:
   application:
     name: sb3-mybatis3-bigdata
   config:
-     import: conf/mysql.yml,conf/postgresql.yml,conf/maria.yml,conf/maria-multiple-dynamic-datasource.yml,
+     import: conf/mybatis.yml,conf/maria-multiple-dynamic-datasource.yml,
   thymeleaf:
     cache: off
 logging:
@@ -12,4 +12,8 @@ logging:
     zzjjcc: debug
     org.springframework.transaction: debug
     org.springframework.jdbc: debug
+    org.mybatis.spring: debug
+    com.alibaba.druid: debug
+
+
 

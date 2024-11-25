@@ -46,7 +46,8 @@ public class MultipleDataSourceTest {
 
     @Test
     public void testMyEsb() {
-        myEsbService.simpleInsertTbA1(">>>>>>");
+        myEsbService.simpleInsertTbA1("gggggg");
+        System.out.println("===============================");
         List<Map<String, Object>> list = myEsbService.list();
         list.forEach(System.out::println);
     }

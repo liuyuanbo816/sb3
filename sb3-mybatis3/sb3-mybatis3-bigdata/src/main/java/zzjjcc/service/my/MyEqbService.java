@@ -24,15 +24,15 @@ public class MyEqbService {
     @DDSTransactional
     public void simpleInsertTbB2(String col) {
         //tbB2Mapper.simpleInsertTbB2(col);
+        jdbcTemplate.update("insert into tb_a1(c1) values (?)", col);
         jdbcTemplate.update("insert into tb_b2(c2) values (?)", col);
-        System.out.println("=============================");
-        List<Map<String, Object>> maps = jdbcTemplate.queryForList("select id,c2 from tb_b2");
-        maps.forEach(entry -> entry.forEach((k, v) -> System.out.println(k + "-->" + v)));
-        //int i = 1 / 0;
+        int i = 1 / 0;
     }
 
     public List<Map<String, Object>> list() {
-        return tbB2Mapper.list();
+        List<Map<String, Object>> maps = jdbcTemplate.queryForList("select id,c2 from tb_b2");
+        maps.forEach(entry -> entry.forEach((k, v) -> System.out.println(k + "-->" + v)));
+        return maps;
     }
 
 }

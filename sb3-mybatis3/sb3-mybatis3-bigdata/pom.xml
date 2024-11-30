@@ -85,11 +85,11 @@
             <version>3.3.2</version>
         </dependency>
         <!--引入自定义多数据源starter-->
-        <dependency>
+        <!--<dependency>
             <groupId>org.zmz</groupId>
             <artifactId>dynamic-datasource-starter</artifactId>
             <version>1.0-SNAPSHOT</version>
-        </dependency>
+        </dependency>-->
     </dependencies>
 
 

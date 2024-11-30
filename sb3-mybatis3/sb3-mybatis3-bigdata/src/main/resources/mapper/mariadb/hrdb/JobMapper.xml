@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="zzjjcc.mapper.mariadb.hrdb.JobMapper">
+    <resultMap id="baseResultMap" type="zzjjcc.model.mariadb.hrdb.Job">
+        <id column="job_id" property="jobId" jdbcType="INTEGER"/>
+        <result column="job_title" property="jobTitle" jdbcType="VARCHAR"/>
+        <result column="min_salary" property="minSalary" jdbcType="INTEGER"/>
+        <result column="max_salary" property="maxSalary" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <sql id="baseSql">
+        job_id,job_title,min_salary,max_salary
+    </sql>
+
+    <select id="getJobs" resultMap="baseResultMap">
+        select
+        <include refid="baseSql"/>
+        from jobs
+    </select>
+</mapper>

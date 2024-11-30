@@ -20,4 +20,14 @@
         <result column="avatar" property="avatar" jdbcType="VARCHAR"/>
         <result column="intro" property="intro" jdbcType="VARCHAR"/>
     </resultMap>
+
+    <sql id="baseSql">
+        id,name,first_name,last_name,married,birthday,province,city,country,email,phone,zip,card
+    </sql>
+
+    <select id="lst1" resultMap="baseResultMap">
+        select <include refid="baseSql"/>
+        from big_person
+        limit #{limit}
+    </select>
 </mapper>

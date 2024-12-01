@@ -20,12 +20,13 @@
         <module>sb3-kafka</module>
         <module>sb3-starter</module>
         <module>sb3-big-event-server</module>
+        <module>sb3-microcloud</module>
     </modules>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <spring-boot.version>3.4.0</spring-boot.version>
+        <spring-boot.version>3.3.6</spring-boot.version>
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
     </properties>

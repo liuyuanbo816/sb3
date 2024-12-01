@@ -16,11 +16,6 @@ public class ObjInfoServiceImpl implements ObjInfoService {
     ObjInfoMapper objInfoMapper;
 
     @Override
-    public LocalDate selectNow() {
-        return objInfoMapper.selectNow();
-    }
-
-    @Override
     public List<ObjInfo> objInfoList() {
         return objInfoMapper.selectList(null);
     }

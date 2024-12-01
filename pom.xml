@@ -8,26 +8,23 @@
     <groupId>org.zmz</groupId>
     <artifactId>sb3</artifactId>
     <version>1.0-SNAPSHOT</version>
+
     <modules>
         <module>sb3-new-features</module>
         <module>sb3-security</module>
         <module>sb3-rabbitmq</module>
         <module>sb3-nettychat</module>
         <module>sb3-redis</module>
-        <module>sb3-vertx-counter</module>
-        <module>sb3-bilibili</module>
         <module>sb3-mybatis3</module>
         <module>sb3-rocketmq</module>
         <module>sb3-kafka</module>
-        <module>leetcode</module>
-        <module>sb3-bigdata</module>
         <module>sb3-starter</module>
     </modules>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <spring-boot.version>3.3.4</spring-boot.version>
+        <spring-boot.version>3.4.0</spring-boot.version>
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
     </properties>

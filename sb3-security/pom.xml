@@ -19,7 +19,6 @@
         <module>sb3-security-browser</module>
         <module>sb3-security-core</module>
         <module>sb3-security-examples</module>
-        <module>sb3-security-oauth2</module>
     </modules>
 
     <properties>

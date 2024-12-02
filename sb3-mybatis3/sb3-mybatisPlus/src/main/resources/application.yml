@@ -1,0 +1,14 @@
+server:
+  port: 9001
+spring:
+  application:
+    name: sb3-mybatisPlus
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://192.168.110.111:3306/mytest
+    username: 'root'
+    password: '123456'
+  jackson:
+    serialization:
+      write-dates-as-timestamps: on
+    date-format: 'yyyy-MM-dd HH:mm:ss'

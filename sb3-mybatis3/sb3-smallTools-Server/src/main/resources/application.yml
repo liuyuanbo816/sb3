@@ -1,0 +1,14 @@
+server:
+  port: 11271
+spring:
+  application:
+    name: sb3-smallTools-Server
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mariadb://localhost:3306/mytest
+    username: root
+    password: 123456
+logging:
+  level:
+    org.springframework.transaction: debug
+    org.springframework.jdbc: debug

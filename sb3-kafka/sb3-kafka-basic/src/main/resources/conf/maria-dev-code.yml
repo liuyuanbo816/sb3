@@ -1,0 +1,13 @@
+spring:
+  datasource:
+    mysql:
+      dataopen:
+        driverClassName: org.mariadb.jdbc.Driver
+        jdbcUrl: jdbc:mariadb://localhost:3306/mytest?serverTimezone=Asia/Shanghai
+        username: root
+        password: '123456'
+
+mybatis:
+  configuration:
+    mysql:
+      map-underscore-to-camel-case: on

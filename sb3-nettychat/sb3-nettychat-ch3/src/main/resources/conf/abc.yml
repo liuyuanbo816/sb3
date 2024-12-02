@@ -1,0 +1,6 @@
+signature:
+  service:
+    lulu:
+      secret:
+        appid: usp-sc
+        key: 888888

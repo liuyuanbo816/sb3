@@ -1,0 +1,17 @@
+spring:
+  rabbitmq:
+    host: 192.168.110.211
+    port: 5672
+    username: rabbit
+    password: '123456'
+    virtual-host: /order-detail
+rmq:
+  biz:
+    srv:
+      common:
+        queue: queue.order
+        routing-key: key.order
+      restaurant:
+        exchange: order.to.restaurant
+      deliveryman:
+        exchange: order.to.deliveryman

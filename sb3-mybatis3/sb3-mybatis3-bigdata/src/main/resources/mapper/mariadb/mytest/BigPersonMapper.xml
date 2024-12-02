@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="zzjjcc.mapper.mariadb.mytest.BigPersonMapper">
+    <resultMap id="baseResultMap" type="zzjjcc.model.mariadb.mytest.BigPerson">
+        <id column="id" property="id" jdbcType="BIGINT"/>
+        <result column="name" property="name" jdbcType="VARCHAR"/>
+        <result column="first_name" property="firstName" jdbcType="VARCHAR"/>
+        <result column="last_name" property="lastName" jdbcType="VARCHAR"/>
+        <result column="married" property="married" jdbcType="TINYINT"/>
+        <result column="birthday" property="birthDay" jdbcType="DATE"/>
+        <result column="province" property="province" jdbcType="VARCHAR"/>
+        <result column="city" property="city" jdbcType="VARCHAR"/>
+        <result column="country" property="country" jdbcType="VARCHAR"/>
+        <result column="email" property="email" jdbcType="VARCHAR"/>
+        <result column="phone" property="phone" jdbcType="VARCHAR"/>
+        <result column="zip" property="zip" jdbcType="VARCHAR"/>
+        <result column="card" property="card" jdbcType="VARCHAR"/>
+        <result column="avatar" property="avatar" jdbcType="VARCHAR"/>
+        <result column="intro" property="intro" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="baseSql">
+        id,name,first_name,last_name,married,birthday,province,city,country,email,phone,zip,card
+    </sql>
+
+    <select id="lst1" resultMap="baseResultMap">
+        select <include refid="baseSql"/>
+        from big_person
+        limit #{limit}
+    </select>
+</mapper>

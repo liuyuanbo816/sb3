@@ -1,0 +1,7 @@
+spring:
+  datasource:
+    redis:
+      host: ${ge62.host}
+      port: 6380
+      password: '123456'
+      database: 0

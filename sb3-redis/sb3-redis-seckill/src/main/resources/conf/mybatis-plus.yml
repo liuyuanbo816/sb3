@@ -1,0 +1,6 @@
+mybatis-plus:
+  mapper-locations: classpath*:/mapper/**/*Mapper.xml
+  type-aliases-package: org.zmz.sb3.redis.seckill.domain
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    map-underscore-to-camel-case: on

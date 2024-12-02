@@ -5,10 +5,9 @@
          http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>org.zmz</groupId>
-        <artifactId>sb3</artifactId>
+        <groupId>zzjjcc</groupId>
+        <artifactId>sb3-security</artifactId>
         <version>1.0-SNAPSHOT</version>
-        <relativePath>../../pom.xml</relativePath>
     </parent>
 
     <artifactId>sb3-security-browser</artifactId>
@@ -21,13 +20,14 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.zmz</groupId>
+            <groupId>zzjjcc</groupId>
             <artifactId>sb3-security-core</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>org.mariadb.jdbc</groupId>
             <artifactId>mariadb-java-client</artifactId>
+            <version>${mariadb.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>

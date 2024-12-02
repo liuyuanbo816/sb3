@@ -1,18 +1,12 @@
 server:
-  port: 11011
+  port: 9525
 db:
   host: 192.168.110.180
 spring:
   application:
     name: sb3-rabbitmq-order
-  datasource:
-    driver-class-name: org.mariadb.jdbc.Driver
-    url: jdbc:mariadb://${db.host}:3316/meishi
-    username: root
-    password: 123456
   output:
     ansi:
       enabled: always
-mybatis-plus:
-  mapper-locations: classpath*:/mapper/**/*Mapper.xml
-  typeAliasesPackage: org.zmz.sb3.rabbitmq.order.po
+  config:
+    import: conf/mariadb.yml,conf/mybatis.yml,conf/redis.yml,conf/rabbitmq.yml

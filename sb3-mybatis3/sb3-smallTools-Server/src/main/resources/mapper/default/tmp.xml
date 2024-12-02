@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<flag>
+    <property>
+        <name>mapreduce.framework.name</name>
+        <value>yarn</value>
+    </property>
+    <!-- 历史服务器端地址,也就是指定了历史服务器节点 -->
+    <property>
+        <name>mapreduce.jobhistory.address</name>
+        <value>hdp101:10020</value>
+    </property>
+    <!-- 历史服务器 web 端地址 -->
+    <property>
+        <name>mapreduce.jobhistory.webapp.address</name>
+        <value>hdp101:19888</value>
+    </property>
+
+</flag>
+

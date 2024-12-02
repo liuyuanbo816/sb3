@@ -75,11 +75,6 @@ public class ObjInfoController {
         }
     }
 
-    @GetMapping("/selectNow")
-    public R<?> selectNow() {
-        return R.ok(objInfoServiceImpl.selectNow());
-    }
-
     @GetMapping("/objInfoList")
     public R<List<ObjInfo>> objInfoList() {
         return R.ok(objInfoServiceImpl.objInfoList());

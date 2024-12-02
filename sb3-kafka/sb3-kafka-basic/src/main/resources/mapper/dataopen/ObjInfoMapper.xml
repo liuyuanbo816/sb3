@@ -29,18 +29,4 @@
         <result column="key_code" property="keyCode" jdbcType="VARCHAR"/>
         <result column="order_no" property="orderNo" jdbcType="BIGINT"/>
     </resultMap>
-
-    <sql id="baseSql">
-        job_id,job_title,min_salary,max_salary
-    </sql>
-
-    <select id="getJobs" resultMap="baseResultMap">
-        select
-        <include refid="baseSql"/>
-        from jobs
-    </select>
-
-    <select id="selectNow" resultType="java.time.LocalDate">
-        select now()
-    </select>
 </mapper>

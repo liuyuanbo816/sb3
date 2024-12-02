@@ -1,0 +1,15 @@
+server:
+  port: 9527
+spring:
+  application:
+    name: sb3-big-event-server
+  datasource:
+    driverClassName: org.mariadb.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/big_event
+    username: root
+    password: '123456'
+  jackson:
+    default-property-inclusion: non_null
+logging:
+  level:
+    zzjjcc: debug

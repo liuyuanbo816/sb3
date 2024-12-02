@@ -2,6 +2,7 @@ package org.zmz.sb3.redis.seckill.common;
 
 import lombok.Getter;
 
+// codeMsg 枚举类
 @Getter
 public enum CodeMsg {
     SUCCESS(0, "SUCCESS"),

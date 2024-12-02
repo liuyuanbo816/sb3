@@ -22,6 +22,7 @@
         <module>sb3-starter</module>
         <module>sb3-big-event-server</module>
         <module>sb3-microcloud</module>
+        <module>sb3-common</module>
     </modules>
 
     <properties>

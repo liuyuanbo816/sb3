@@ -1,0 +1,17 @@
+spring:
+  datasource:
+    maria:
+      hrdb:
+        driverClassName: com.mysql.cj.jdbc.Driver
+        jdbcUrl: jdbc:mysql://localhost:3306/hrdb
+        username: root
+        password: '123456'
+      mytest:
+        driverClassName: com.mysql.cj.jdbc.Driver
+        jdbcUrl: jdbc:mysql://localhost:3306/mytest
+        username: root
+        password: '123456'
+logging:
+  level:
+    zzjjcc.mapper.mariadb.hrdb: debug
+    zzjjcc.mapper.mariadb.mytest: debug

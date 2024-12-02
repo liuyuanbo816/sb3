@@ -4,7 +4,8 @@ spring:
   application:
     name: sb3-mybatis3-bigdata
   config:
-     import: conf/mariadb.yml,
+     # import: conf/mariadb.yml
+     import: conf/mysql-yoga14s.yml
   thymeleaf:
     cache: off
 logging:
@@ -14,6 +15,3 @@ logging:
     org.springframework.jdbc: debug
     org.mybatis.spring: debug
     com.alibaba.druid: debug
-
-
-

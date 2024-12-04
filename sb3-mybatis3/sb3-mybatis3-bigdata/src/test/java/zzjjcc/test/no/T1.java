@@ -2,14 +2,9 @@ package zzjjcc.test.no;
 
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
-import zzjjcc.utils.CompletableFutureBatchQueryUtil;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
-import java.util.function.Function;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
@@ -35,18 +30,8 @@ public class T1 {
 
     @Test
     public void t4() {
-        List<Number> list = new ArrayList<>();
-        for (int i = 1; i <= 10; i++) {
-            list.add(i);
-        }
-
-        Function<Number, List<String>> func = iNum -> mockQueryDB(list, 3);
-        ExecutorService executorService = Executors.newFixedThreadPool(1);
-        long start = System.currentTimeMillis();
-        List<String> maps = CompletableFutureBatchQueryUtil.batchQuery(list.size(), 3, func, executorService);
-        long end = System.currentTimeMillis();
-        System.out.println("耗时: " + (end - start));
-        maps.forEach(System.out::println);
+        System.out.println(Runtime.getRuntime().availableProcessors());
+        System.out.println(Runtime.getRuntime().availableProcessors() << 2);
     }
 
     public List<String> mockQueryDB(List<Number> ids) {

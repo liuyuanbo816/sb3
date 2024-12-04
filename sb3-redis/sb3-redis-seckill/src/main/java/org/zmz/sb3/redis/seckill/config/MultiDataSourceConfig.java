@@ -16,9 +16,9 @@ public class MultiDataSourceConfig {
         return DataSourceBuilder.create().build();
     }
 
-    @Bean(name = "mariadbDataSource")
+    @Bean(name = "mariaMyTestDataSource")
     @ConfigurationProperties(prefix = "spring.datasource.mariadb")
-    public DataSource mariadbDataSource() {
+    public DataSource mariaMyTestDataSource() {
         return DataSourceBuilder.create().build();
     }
 

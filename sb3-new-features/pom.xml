@@ -68,6 +68,11 @@
             <artifactId>fastjson</artifactId>
             <version>1.2.83</version>
         </dependency>
+        <dependency>
+            <groupId>io.vertx</groupId>
+            <artifactId>vertx-web</artifactId>
+            <version>4.5.11</version>
+        </dependency>
     </dependencies>
 
     <build>

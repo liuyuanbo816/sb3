@@ -1,6 +1,7 @@
 package zzjjcc.test.no;
 
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
@@ -32,6 +33,18 @@ public class T1 {
     public void t4() {
         System.out.println(Runtime.getRuntime().availableProcessors());
         System.out.println(Runtime.getRuntime().availableProcessors() << 2);
+    }
+
+    @Test
+    public void t5() {
+        String dbType = "mysql";
+        System.out.println(StringUtils.capitalize(dbType));
+    }
+
+    @Test
+    public void t6() {
+        String dbType = "mysql";
+        System.out.println(StringUtils.capitalize(dbType));
     }
 
     public List<String> mockQueryDB(List<Number> ids) {

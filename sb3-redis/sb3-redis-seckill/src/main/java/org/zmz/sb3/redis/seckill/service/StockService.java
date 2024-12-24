@@ -1,9 +1,12 @@
 package org.zmz.sb3.redis.seckill.service;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Service;
 import org.zmz.sb3.redis.seckill.domain.Stock;
 
+import java.time.Duration;
 import java.util.concurrent.locks.ReentrantLock;
 
 @Service
@@ -14,9 +17,12 @@ public class StockService {
 
     ReentrantLock lock = new ReentrantLock();
 
+    @Autowired
+    StringRedisTemplate stringRedisTemplate;
+
     public void deduce() {
         lock.lock();
-
+        stringRedisTemplate.expire("AA", Duration.ofSeconds(100000));
         try {
             int count = stock.getCount();
             count--;

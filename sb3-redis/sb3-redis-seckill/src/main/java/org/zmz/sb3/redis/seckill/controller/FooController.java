@@ -1,5 +1,6 @@
 package org.zmz.sb3.redis.seckill.controller;
 
+import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,5 +23,12 @@ public class FooController {
         stringRedisTemplate.opsForHash().put("mytest", userCode, UUID.randomUUID().toString());
         return R.success(">>>>>> OK >>>>>>");
     }
+
+    @GetMapping("/c2")
+    public R<String> c1(HttpSession httpSession) {
+        httpSession.setAttribute("springSessionId", UUID.randomUUID().toString());
+        return R.success(">>>>>> OK >>>>>>");
+    }
+
 
 }

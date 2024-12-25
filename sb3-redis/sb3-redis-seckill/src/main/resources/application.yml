@@ -25,3 +25,4 @@ spring:
 logging:
   level:
     org.zmz.sb3.redis.seckill: debug
+spring.session.store-type: redis

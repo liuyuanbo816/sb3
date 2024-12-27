@@ -1,5 +1,5 @@
 server:
-  port: 9511
+  port: 9521
 spring:
   application:
     name: sb3-mybatis3-bigdata

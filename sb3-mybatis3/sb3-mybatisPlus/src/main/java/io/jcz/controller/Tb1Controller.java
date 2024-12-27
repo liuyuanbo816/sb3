@@ -6,6 +6,8 @@ import io.jcz.model.Tb1;
 import io.jcz.service.Tb1Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -39,6 +41,18 @@ public class Tb1Controller {
         tb2.setBirth(new Date());
         tb1Mapper.insert(tb2);
         return R.ok("插入成功");
+    }
+
+    @PostMapping("/batchInsert")
+    public R<?> batchInsert(@RequestBody List<Tb1> list) {
+        tb1Service.batchInsert(list);
+        return R.ok();
+    }
+
+    @PostMapping("/batchInsert2")
+    public R<?> batchInsert2(@RequestBody List<Tb1> list) {
+        tb1Service.batchInsert2(list);
+        return R.ok();
     }
 
 }

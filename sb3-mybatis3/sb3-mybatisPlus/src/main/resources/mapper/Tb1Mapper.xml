@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="io.jcz.mapper.Tb1Mapper">
+
+    <select id="batchInsert">
+        <if test="list!=null and list.size()>0">
+            INSERT INTO tb1
+            (name,birth)
+            values
+            <foreach collection="list" index="index" item="item" separator=",">
+                (
+                #{item.name,jdbcType=VARCHAR}, #{item.birth}
+                )
+            </foreach>
+        </if>
+    </select>
+</mapper>

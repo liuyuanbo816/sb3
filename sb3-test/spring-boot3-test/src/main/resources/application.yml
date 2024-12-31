@@ -1,0 +1,5 @@
+server:
+  port: 9531
+spring:
+  application:
+    name: spring-boot3-test
